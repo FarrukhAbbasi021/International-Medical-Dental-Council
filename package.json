@@ -1,0 +1,12 @@
+{
+  "name": "imdc-intake-portal",
+  "version": "1.0.0",
+  "description": "IMDC Intake Management Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
