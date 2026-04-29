@@ -7,14 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #ffffff;
-  --navy-mid: #f4f4f4;
-  --navy-light: #e8e8e8;
   --gold: #cc0000;
   --gold-light: #ee2222;
-  --cream: #fff5f5;
-  --white: #ffffff;
-  --red: #cc0000;
   --green: #1a6b45;
   --green-light: #27ae60;
   --gray: #666666;
@@ -24,29 +18,22 @@
   --border-gray: rgba(0,0,0,0.10);
   --shadow: 0 4px 24px rgba(0,0,0,0.10);
   --r: 6px;
-  --sidebar-w: 260px;
+  --sidebar-w: 270px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-height:100vh;overflow-x:hidden}
-
-/* ===== HAMBURGER BUTTON ===== */
-.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:38px;height:38px;cursor:pointer;border:1px solid var(--border-gray);border-radius:var(--r);background:var(--white);gap:5px;flex-shrink:0}
+.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:38px;height:38px;cursor:pointer;border:1px solid var(--border-gray);border-radius:var(--r);background:#fff;gap:5px;flex-shrink:0}
 .hamburger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ===== SIDEBAR OVERLAY ===== */
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:199}
 .sidebar-overlay.open{display:block}
 
 /* ===== LOGIN ===== */
 #loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#fff 60%,#fff0f0 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
-.login-card{background:#ffffff;border:1px solid var(--border-gray);border-radius:16px;padding:48px 40px;width:420px;max-width:95vw;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.12)}
+.login-card{background:#fff;border:1px solid var(--border-gray);border-radius:16px;padding:48px 40px;width:420px;max-width:95vw;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.12)}
 .login-logo{margin-bottom:24px}
-.login-logo .logo-circle{width:72px;height:72px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff}
-.login-logo h1{font-family:'Playfair Display',serif;font-size:20px;color:var(--text)}
-.login-logo p{font-size:12px;color:var(--gray);margin-top:4px}
 .login-card h2{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;color:var(--text)}
 .login-card .sub{color:var(--gray);font-size:13px;margin-bottom:28px}
 .login-card input{width:100%;background:#f9f9f9;border:1px solid #ddd;border-radius:var(--r);padding:11px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:12px;outline:none;transition:.2s}
@@ -58,34 +45,28 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
 
 /* ===== LAYOUT ===== */
 #app{display:none;flex-direction:column;min-height:100vh}
-.topbar{background:#ffffff;border-bottom:1px solid var(--border-gray);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.topbar{background:#fff;border-bottom:1px solid var(--border-gray);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
 .topbar-brand{display:flex;align-items:center;gap:10px}
-.topbar-brand .circle{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff}
-.topbar-brand span{font-family:'Playfair Display',serif;font-size:16px;color:var(--text)}
-.topbar-brand small{font-size:11px;color:var(--gray);display:block;line-height:1}
 .topbar-right{display:flex;align-items:center;gap:12px}
 .save-status{font-size:12px;color:var(--green-light);display:flex;align-items:center;gap:5px}
 .btn-logout{background:transparent;border:1px solid #ddd;color:var(--gray);border-radius:var(--r);padding:6px 14px;font-size:12px;cursor:pointer;transition:.2s}
 .btn-logout:hover{border-color:var(--gold);color:var(--gold)}
-
 .content{display:flex;flex:1;position:relative}
 
 /* ===== SIDEBAR ===== */
-.sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:#ffffff;border-right:1px solid var(--border-gray);padding:16px 0;display:flex;flex-direction:column;position:fixed;top:60px;left:0;height:calc(100vh - 60px);overflow-y:auto;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);z-index:200;box-shadow:4px 0 24px rgba(0,0,0,0.12)}
+.sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:#fff;border-right:1px solid var(--border-gray);padding:16px 0;display:flex;flex-direction:column;position:fixed;top:60px;left:0;height:calc(100vh - 60px);overflow-y:auto;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);z-index:200;box-shadow:4px 0 24px rgba(0,0,0,0.12)}
 .sidebar.open{transform:translateX(0)}
 .sidebar-label{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:1.5px;padding:8px 16px 4px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--gray);transition:.15s;margin:1px 8px;border-radius:6px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--gray);transition:.15s;margin:1px 8px}
 .nav-item:hover{background:#fff0f0;color:var(--text)}
 .nav-item.active{background:#fff0f0;color:var(--gold);font-weight:600}
 .nav-item .icon{font-size:15px;width:20px;text-align:center}
 .nav-item .num{margin-left:auto;font-size:10px;background:#f0f0f0;color:#888;border-radius:99px;padding:2px 7px}
-.nav-divider{height:1px;background:#eeeeee;margin:8px 16px}
-.sidebar-section{padding:0}
+.nav-item .num.done{background:#e8f5e9;color:var(--green-light)}
+.nav-divider{height:1px;background:#eee;margin:8px 16px}
 
 /* ===== MAIN ===== */
-.main{flex:1;padding:28px 32px;overflow-y:auto;max-width:960px;background:#f7f7f7;margin-left:0;transition:margin-left .28s cubic-bezier(.4,0,.2,1)}
-
-/* Desktop: sidebar always visible, main shifts right */
+.main{flex:1;padding:28px 32px;overflow-y:auto;max-width:980px;background:#f7f7f7;margin-left:0;transition:margin-left .28s}
 @media(min-width:900px){
   .sidebar{transform:translateX(0);box-shadow:none}
   .main{margin-left:var(--sidebar-w)}
@@ -102,53 +83,23 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
 .page-header p{font-size:13px;color:var(--gray);margin-top:6px}
 
 /* ===== FORM CARDS ===== */
-.card{background:#ffffff;border:1px solid var(--border-gray);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+.card{background:#fff;border:1px solid var(--border-gray);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
 .card-title{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.card-title .icon{font-size:16px}
-
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .span2{grid-column:span 2}
 .span3{grid-column:span 3}
-
 .field{display:flex;flex-direction:column;gap:5px}
-.field label{font-size:12px;color:#555;font-weight:500;display:flex;align-items:center;gap:4px}
+.field label{font-size:12px;color:#555;font-weight:500}
 .field label .req{color:var(--gold);font-size:14px}
-.field label .tip{color:var(--gold);font-size:11px;cursor:help;opacity:.7}
 .field input,.field select,.field textarea{background:#fafafa;border:1px solid #ddd;border-radius:var(--r);padding:10px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:.2s;width:100%}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(204,0,0,0.07)}
 .field input::placeholder,.field textarea::placeholder{color:#bbb}
-.field select option{background:#fff;color:var(--text)}
 .field textarea{resize:vertical;min-height:80px}
 .field .hint{font-size:11px;color:#aaa;margin-top:2px}
-
+.field input.field-error{border-color:#e74c3c!important;background:#fff8f8}
 .required-note{font-size:11px;color:var(--gray);margin-bottom:16px}
 .required-note span{color:var(--gold)}
-
-/* ===== DOCUMENT UPLOAD ===== */
-.doc-upload-zone{border:2px dashed #ddd;border-radius:8px;padding:28px;text-align:center;cursor:pointer;transition:.2s;position:relative;background:#fafafa}
-.doc-upload-zone:hover{border-color:var(--gold);background:#fff8f8}
-.doc-upload-zone .icon{font-size:32px;margin-bottom:8px;display:block}
-.doc-upload-zone p{font-size:13px;color:var(--gray)}
-.doc-upload-zone small{font-size:11px;color:#bbb}
-.doc-upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-
-.doc-meta{background:#f9f9f9;border:1px solid #eee;border-radius:var(--r);padding:14px;margin-bottom:14px}
-.doc-meta .grid2{margin-bottom:10px}
-.doc-meta-actions{display:flex;gap:8px;margin-top:10px}
-
-.doc-list{margin-top:16px}
-.doc-item{background:#fff;border:1px solid #eee;border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.doc-item .doc-icon{font-size:20px;width:28px}
-.doc-item .doc-info{flex:1}
-.doc-item .doc-info strong{font-size:13px;display:block;color:var(--text)}
-.doc-item .doc-info small{font-size:11px;color:var(--gray)}
-.doc-item .doc-desc{font-size:11px;color:var(--gray);font-style:italic;margin-top:2px}
-.doc-actions{display:flex;gap:6px}
-
-.qr-section{background:#f9f9f9;border:1px solid #eee;border-radius:var(--r);padding:16px;margin-top:14px;text-align:center}
-.qr-section p{font-size:12px;color:var(--gray);margin-bottom:10px}
-.qr-placeholder{width:100px;height:100px;background:var(--text);margin:0 auto;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff}
 
 /* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:.2s}
@@ -161,48 +112,14 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
 .btn-success{background:var(--green);color:#fff}
 .btn-success:hover{background:var(--green-light)}
 .btn-sm{padding:5px 10px;font-size:11px}
-
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 
 /* ===== PROGRESS ===== */
 .progress-bar{height:5px;background:#eee;border-radius:99px;margin-bottom:24px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:99px;transition:.4s}
 
-/* ===== REVIEW PAGE ===== */
-.review-section{margin-bottom:20px}
-.review-section h3{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #eee}
-.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.review-field{background:#f9f9f9;border-radius:4px;padding:10px 12px}
-.review-field .rl{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.8px}
-.review-field .rv{font-size:13px;color:var(--text);margin-top:2px}
-.review-field .rv.empty{color:#ccc;font-style:italic}
-
-/* ===== SUBMISSION FLOW ===== */
-.step-flow{display:flex;gap:0;margin-bottom:28px;overflow:hidden;border-radius:8px}
-.step{flex:1;padding:12px 8px;text-align:center;background:#f9f9f9;border:1px solid #eee;font-size:11px;color:#aaa;position:relative}
-.step.done{background:#f0faf5;border-color:rgba(39,174,96,.3);color:var(--green-light)}
-.step.active{background:#fff0f0;border-color:rgba(204,0,0,.25);color:var(--gold)}
-.step .sn{display:block;font-size:18px;margin-bottom:3px}
-.step:not(:last-child)::after{content:'›';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:#ccc;z-index:1;font-size:18px}
-
-.success-box{background:#f0faf5;border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:28px;text-align:center;margin:20px 0}
-.success-box .sicon{font-size:40px;margin-bottom:12px;display:block}
-.success-box h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--green-light);margin-bottom:8px}
-.success-box p{font-size:13px;color:var(--gray)}
-
-/* ===== PRINT PREVIEW ===== */
-.print-form{background:#fff;border:1px solid #eee;border-radius:10px;padding:28px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
-.print-form .print-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #eee}
-.print-form .print-header h2{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold)}
-.print-form .print-header p{font-size:12px;color:var(--gray)}
-.print-table{width:100%;border-collapse:collapse}
-.print-table tr{border-bottom:1px solid #f0f0f0}
-.print-table td{padding:8px 10px;font-size:13px;vertical-align:top}
-.print-table td:first-child{width:40%;color:var(--gray);font-size:12px}
-.print-table td:last-child{color:var(--text);font-weight:500}
-
 /* ===== TABS ===== */
-.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid #eee;padding-bottom:-1px}
+.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid #eee}
 .tab{padding:8px 16px;border-radius:var(--r) var(--r) 0 0;font-size:13px;cursor:pointer;color:var(--gray);border:1px solid transparent;margin-bottom:-1px;transition:.15s}
 .tab.active{color:var(--gold);border-color:#eee;border-bottom-color:#fff;background:#fff}
 
@@ -213,14 +130,14 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
 .badge-gray{background:#f0f0f0;color:#777;border:1px solid #e0e0e0}
 
 /* ===== MODAL ===== */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:500;display:none}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:500}
 .modal-bg.open{display:flex}
-.modal{background:#fff;border:1px solid #eee;border-radius:10px;padding:28px;width:500px;max-width:95vw;max-height:85vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.15)}
+.modal{background:#fff;border:1px solid #eee;border-radius:10px;padding:28px;width:520px;max-width:95vw;max-height:85vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.15)}
 .modal h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);margin-bottom:16px}
 .modal-close{float:right;background:none;border:none;color:#aaa;font-size:20px;cursor:pointer;line-height:1}
 
 /* ===== SIGNATURE ===== */
-.sig-pad{border:1px solid #ddd;border-radius:var(--r);background:#fafafa;overflow:hidden;position:relative}
+.sig-pad{border:1px solid #ddd;border-radius:var(--r);background:#fafafa;overflow:hidden}
 .sig-pad canvas{display:block;cursor:crosshair;width:100%;height:100px}
 .sig-actions{display:flex;gap:8px;margin-top:6px}
 
@@ -229,36 +146,115 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
 .dash-card{background:#fff;border:1px solid #eee;border-radius:10px;padding:18px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
 .dash-card .dc-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold)}
 .dash-card .dc-lbl{font-size:11px;color:var(--gray);margin-top:4px}
-
-.recent-list{margin-top:4px}
 .recent-item{background:#fff;border:1px solid #eee;border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;transition:.15s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 .recent-item:hover{border-color:var(--gold);background:#fff8f8}
+.step-flow{display:flex;gap:0;margin-bottom:28px;overflow:hidden;border-radius:8px}
+.step{flex:1;padding:12px 8px;text-align:center;background:#f9f9f9;border:1px solid #eee;font-size:11px;color:#aaa;position:relative}
+.step.done{background:#f0faf5;border-color:rgba(39,174,96,.3);color:var(--green-light)}
+.step.active{background:#fff0f0;border-color:rgba(204,0,0,.25);color:var(--gold)}
+.step .sn{display:block;font-size:18px;margin-bottom:3px}
+.step:not(:last-child)::after{content:'›';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:#ccc;z-index:1;font-size:18px}
+
+/* ===== DOCUMENT UPLOAD SECTION ===== */
+.doc-required-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.doc-req-item{background:#fafafa;border:1px solid #eee;border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;transition:.2s}
+.doc-req-item.uploaded{background:#f0faf5;border-color:rgba(39,174,96,.3)}
+.doc-req-item.uploaded .req-status{color:var(--green-light)}
+.doc-req-item .req-num{font-size:11px;font-weight:700;color:var(--gold);min-width:22px}
+.doc-req-item .req-name{font-size:12px;flex:1;color:var(--text-mid)}
+.doc-req-item .req-opt{font-size:10px;color:#aaa}
+.doc-req-item .req-status{font-size:14px;color:#ccc}
+
+.upload-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.upload-opt{background:#fafafa;border:2px solid #eee;border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:.2s}
+.upload-opt:hover,.upload-opt.active{border-color:var(--gold);background:#fff8f8}
+.upload-opt .opt-icon{font-size:24px;margin-bottom:6px;display:block}
+.upload-opt .opt-label{font-size:12px;font-weight:600;color:var(--text)}
+.upload-opt .opt-sub{font-size:11px;color:var(--gray);margin-top:2px}
+
+.upload-panel{display:none;margin-top:12px}
+.upload-panel.active{display:block}
+
+.doc-upload-zone{border:2px dashed #ddd;border-radius:8px;padding:28px;text-align:center;cursor:pointer;transition:.2s;position:relative;background:#fafafa}
+.doc-upload-zone:hover,.doc-upload-zone.drag-over{border-color:var(--gold);background:#fff8f8}
+.doc-upload-zone .icon{font-size:32px;margin-bottom:8px;display:block}
+.doc-upload-zone p{font-size:13px;color:var(--gray)}
+.doc-upload-zone small{font-size:11px;color:#bbb}
+.doc-upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+
+.doc-list{margin-top:16px}
+.doc-item{background:#fff;border:1px solid #eee;border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.doc-item .doc-icon{font-size:20px;width:28px}
+.doc-item .doc-info{flex:1}
+.doc-item .doc-info strong{font-size:13px;display:block;color:var(--text)}
+.doc-item .doc-info small{font-size:11px;color:var(--gray)}
+.doc-actions{display:flex;gap:6px}
+
+/* ===== REVIEW ===== */
+.review-section{margin-bottom:20px}
+.review-section h3{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #eee}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.review-field{background:#f9f9f9;border-radius:4px;padding:10px 12px}
+.review-field .rl{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.8px}
+.review-field .rv{font-size:13px;color:var(--text);margin-top:2px}
+.review-field .rv.empty{color:#ccc;font-style:italic}
+
+/* ===== PRINT PREVIEW ===== */
+.print-form-preview{background:#fff;border:1px solid #eee;border-radius:10px;padding:28px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+.print-form-preview .pf-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #cc0000}
+.print-form-preview .pf-header h2{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold)}
+.print-form-preview .pf-header p{font-size:12px;color:var(--gray);margin-top:4px}
+.print-table{width:100%;border-collapse:collapse}
+.print-table tr{border-bottom:1px solid #f0f0f0}
+.print-table td{padding:8px 10px;font-size:13px;vertical-align:top}
+.print-table td:first-child{width:40%;color:var(--gray);font-size:12px}
+.print-table td:last-child{color:var(--text);font-weight:500}
+.print-sig-line{border-top:1px solid #333;width:200px;margin:0 auto;padding-top:4px;font-size:11px;color:#666;text-align:center}
+
+/* ===== SUCCESS BOX ===== */
+.success-box{background:#f0faf5;border:1px solid rgba(39,174,96,.3);border-radius:10px;padding:28px;text-align:center;margin:20px 0}
+.success-box .sicon{font-size:40px;margin-bottom:12px;display:block}
+.success-box h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--green-light);margin-bottom:8px}
+.success-box p{font-size:13px;color:var(--gray)}
+
+/* ===== VALIDATION POPUP ===== */
+.validation-popup{position:fixed;top:70px;right:20px;background:#fff;border:1px solid #eee;border-radius:10px;padding:16px 20px;width:320px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:999;display:none}
+.validation-popup.show{display:block;animation:slideIn .3s ease}
+@keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.validation-popup h4{font-size:13px;font-weight:600;color:#e74c3c;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.validation-popup ul{list-style:none;font-size:12px;color:var(--gray)}
+.validation-popup ul li{padding:3px 0;border-bottom:1px solid #f5f5f5;display:flex;align-items:flex-start;gap:6px}
+.validation-popup ul li::before{content:'⚠';font-size:10px;color:#e74c3c;margin-top:1px}
+.validation-popup .vp-close{position:absolute;top:10px;right:12px;background:none;border:none;color:#aaa;font-size:16px;cursor:pointer}
 
 /* ===== PRINT STYLES ===== */
 @media print{
-  body{background:#fff;color:#000}
-  #loginScreen,#app>.topbar,.sidebar,.sidebar-overlay,.hamburger,.btn-row,.nav-item,.topbar-right,.modal-bg{display:none!important}
-  .main{padding:0!important;background:#fff!important}
-  .card{border:1px solid #ddd;background:#fff;page-break-inside:avoid;box-shadow:none}
-  .field input,.field select,.field textarea{border:1px solid #ccc;color:#000;background:#fff}
-  .field label{color:#333}
-  .page-header h2{color:#111}
-  .page-header .form-number{color:#cc0000}
+  body{background:#fff!important;color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #loginScreen,#app>.topbar,.sidebar,.sidebar-overlay,.hamburger,.btn-row,.topbar-right,.modal-bg,.validation-popup,
+  .btn,.upload-options,.upload-panel,.doc-upload-zone,.non-print{display:none!important}
+  .main{padding:0!important;background:#fff!important;margin-left:0!important}
+  .page{display:block!important}
+  .page:not(#page-output){display:none!important}
+  #page-output{display:block!important}
+  .print-form-preview{border:1px solid #ccc;page-break-inside:avoid;box-shadow:none;margin-bottom:16px;break-inside:avoid}
+  .print-form-preview .pf-header{border-bottom:2px solid #cc0000}
+  .print-table td{border-bottom:1px solid #eee}
 }
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .grid3{grid-template-columns:1fr 1fr}
   .span3{grid-column:span 2}
-  .main{margin-left:0!important}
+  .main{margin-left:0!important;padding:16px}
+  .dash-grid{grid-template-columns:1fr 1fr}
+  .upload-options{grid-template-columns:1fr}
+  .doc-required-list{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .grid2,.grid3{grid-template-columns:1fr}
   .span2,.span3{grid-column:span 1}
-  .main{padding:16px;margin-left:0!important}
-  .dash-grid{grid-template-columns:1fr 1fr}
   .step-flow{flex-wrap:wrap}
   .step{flex:1 0 30%;font-size:10px;padding:8px 4px}
+  .review-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -279,17 +275,24 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
         <text x="94" y="52" font-family="'DM Sans', Arial, sans-serif" font-size="10" fill="#555555" letter-spacing="0.5">INTERNATIONAL MEDICAL &amp; DENTAL COUNCIL</text>
         <line x1="94" y1="56" x2="215" y2="56" stroke="#cc0000" stroke-width="1.5" opacity="0.4"/>
       </svg>
-      <h1>International Medical &amp; Dental Council</h1>
-      <p>LLC — Secure Intake Portal</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text)">International Medical &amp; Dental Council</h1>
+      <p style="font-size:12px;color:var(--gray);margin-top:4px">LLC — Secure Intake Portal</p>
     </div>
-    <h2>Staff Login</h2>
-    <p class="sub">Enter your credentials to access the portal</p>
-    <input type="text" id="loginUser" placeholder="Username" autocomplete="off">
-    <input type="password" id="loginPass" placeholder="Password">
+    <h2>Portal Login</h2>
+    <p class="sub">Enter your credentials to access the intake portal</p>
+    <input type="text" id="loginUser" placeholder="Username" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()">
+    <input type="password" id="loginPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="btn-login" onclick="doLogin()">Sign In to Portal</button>
     <div class="login-err" id="loginErr">Invalid username or password. Please try again.</div>
     <p style="font-size:11px;color:#aaa;margin-top:16px">Demo: user <strong style="color:var(--gold)">admin</strong> / pass <strong style="color:var(--gold)">imdc2024</strong></p>
   </div>
+</div>
+
+<!-- ===== VALIDATION POPUP ===== -->
+<div class="validation-popup" id="validationPopup">
+  <button class="vp-close" onclick="closeValidation()">×</button>
+  <h4>⚠ Missing Required Fields</h4>
+  <ul id="validationList"></ul>
 </div>
 
 <!-- ===== APP ===== -->
@@ -299,24 +302,15 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
       <div class="hamburger" id="hamburgerBtn" onclick="toggleSidebar()">
         <span></span><span></span><span></span>
       </div>
-      <!-- IMDC SVG Logo -->
       <svg width="120" height="40" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-        <!-- Stethoscope left curl -->
         <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <!-- Stethoscope circle head -->
         <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
         <circle cx="24" cy="46" r="2" fill="#cc0000"/>
-        <!-- Stethoscope tube going right -->
         <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <!-- ECG / heartbeat line -->
         <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- IMDC Text -->
         <text x="94" y="38" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
-        <!-- Tooth icon top right of text -->
         <path d="M196 14 Q200 10 204 14 Q208 10 212 14 Q214 22 210 30 Q208 34 204 34 Q200 34 198 30 Q194 22 196 14Z" stroke="#cc0000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- Subtitle text -->
         <text x="94" y="52" font-family="'DM Sans', Arial, sans-serif" font-size="10" fill="#555555" letter-spacing="0.5">INTERNATIONAL MEDICAL &amp; DENTAL COUNCIL</text>
-        <!-- Red underline accent -->
         <line x1="94" y1="56" x2="215" y2="56" stroke="#cc0000" stroke-width="1.5" opacity="0.4"/>
       </svg>
     </div>
@@ -326,57 +320,34 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
     </div>
   </div>
 
-  <!-- Sidebar overlay for mobile -->
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
   <div class="content">
     <!-- SIDEBAR -->
-    <nav class="sidebar">
+    <nav class="sidebar" id="mainSidebar">
       <div class="sidebar-label">Navigation</div>
-      <div class="sidebar-section">
-        <div class="nav-item active" onclick="showPage('dashboard', this)"><span class="icon">⊞</span> Dashboard</div>
-      </div>
-
+      <div class="nav-item active" onclick="showPage('dashboard', this)"><span class="icon">⊞</span> Dashboard</div>
       <div class="nav-divider"></div>
-      <div class="sidebar-label">A — New Customer</div>
-      <div class="sidebar-section">
-        <div class="nav-item" onclick="showPage('form-A1', this)"><span class="icon">🏥</span> A-1 · Account Setup <span class="num">NC</span></div>
-        <div class="nav-item" onclick="showPage('form-A2', this)"><span class="icon">📋</span> A-2 · Practice Profile <span class="num">NC</span></div>
-        <div class="nav-item" onclick="showPage('form-A3', this)"><span class="icon">👤</span> A-3 · Provider Info <span class="num">NC</span></div>
-      </div>
-
+      <div class="sidebar-label">Billing</div>
+      <div class="nav-item" id="nav-NASF0001" onclick="showPage('form-NASF0001', this)"><span class="icon">📄</span> Contract Billing NASF0001 <span class="num" id="badge-NASF0001">•</span></div>
+      <div class="nav-item" id="nav-NASF0001A" onclick="showPage('form-NASF0001A', this)"><span class="icon">📄</span> Contract NASF0001A <span class="num" id="badge-NASF0001A">•</span></div>
+      <div class="nav-item" id="nav-AUDIT" onclick="showPage('form-AUDIT', this)"><span class="icon">🔍</span> Audit NASF0001 <span class="num" id="badge-AUDIT">•</span></div>
+      <div class="nav-item" id="nav-NDA0001B" onclick="showPage('form-NDA0001B', this)"><span class="icon">🔒</span> NDA NDA0001B <span class="num" id="badge-NDA0001B">•</span></div>
+      <div class="nav-item" id="nav-REPORTS" onclick="showPage('form-REPORTS', this)"><span class="icon">📊</span> Reports <span class="num" id="badge-REPORTS">•</span></div>
       <div class="nav-divider"></div>
-      <div class="sidebar-label">B — Credentialing</div>
-      <div class="sidebar-section">
-        <div class="nav-item" onclick="showPage('form-B1', this)"><span class="icon">🎓</span> B-1 · Provider Credentials <span class="num">CR</span></div>
-        <div class="nav-item" onclick="showPage('form-B2', this)"><span class="icon">🏛</span> B-2 · Insurance Enrollment <span class="num">CR</span></div>
-        <div class="nav-item" onclick="showPage('form-B3', this)"><span class="icon">🪪</span> B-3 · CAQH Profile <span class="num">CR</span></div>
-      </div>
-
+      <div class="sidebar-label">Credentialing</div>
+      <div class="nav-item" id="nav-CARC0001" onclick="showPage('form-CARC0001', this)"><span class="icon">✅</span> Check List CARC0001 <span class="num" id="badge-CARC0001">•</span></div>
+      <div class="nav-item" id="nav-CARC0001A" onclick="showPage('form-CARC0001A', this)"><span class="icon">🤝</span> Agreement CARC0001A <span class="num" id="badge-CARC0001A">•</span></div>
       <div class="nav-divider"></div>
-      <div class="sidebar-label">C — Contracts</div>
-      <div class="sidebar-section">
-        <div class="nav-item" onclick="showPage('form-C1', this)"><span class="icon">💼</span> C-1 · Billing Agreement <span class="num">CT</span></div>
-        <div class="nav-item" onclick="showPage('form-C2', this)"><span class="icon">🔒</span> C-2 · BAA / HIPAA <span class="num">CT</span></div>
-        <div class="nav-item" onclick="showPage('form-C3', this)"><span class="icon">📜</span> C-3 · Service Terms <span class="num">CT</span></div>
-      </div>
-
-      <div class="nav-divider"></div>
-      <div class="sidebar-label">D — Mix Forms</div>
-      <div class="sidebar-section">
-        <div class="nav-item" onclick="showPage('form-D1', this)"><span class="icon">💊</span> D-1 · CPT Fee Schedule <span class="num">MX</span></div>
-        <div class="nav-item" onclick="showPage('form-D2', this)"><span class="icon">📨</span> D-2 · PHI Release <span class="num">MX</span></div>
-        <div class="nav-item" onclick="showPage('form-D3', this)"><span class="icon">📝</span> D-3 · Special Requests <span class="num">MX</span></div>
-      </div>
-
+      <div class="sidebar-label">Extra Forms</div>
+      <div class="nav-item" id="nav-STD0001" onclick="showPage('form-STD0001', this)"><span class="icon">📝</span> STD0001 <span class="num" id="badge-STD0001">•</span></div>
+      <div class="nav-item" id="nav-STD0002" onclick="showPage('form-STD0002', this)"><span class="icon">📝</span> STD0002 <span class="num" id="badge-STD0002">•</span></div>
       <div class="nav-divider"></div>
       <div class="sidebar-label">Process</div>
-      <div class="sidebar-section">
-        <div class="nav-item" onclick="showPage('documents', this)"><span class="icon">📁</span> Document Upload</div>
-        <div class="nav-item" onclick="showPage('review', this)"><span class="icon">👁</span> Review &amp; Verify</div>
-        <div class="nav-item" onclick="showPage('submit', this)"><span class="icon">✅</span> Submit &amp; Send</div>
-        <div class="nav-item" onclick="showPage('output', this)"><span class="icon">🖨</span> Final Output</div>
-      </div>
+      <div class="nav-item" onclick="showPage('documents', this)"><span class="icon">📁</span> Document Upload</div>
+      <div class="nav-item" onclick="showPage('review', this)"><span class="icon">👁</span> Review &amp; Verify</div>
+      <div class="nav-item" onclick="showPage('submit', this)"><span class="icon">✅</span> Submit &amp; Send</div>
+      <div class="nav-item" onclick="showPage('output', this)"><span class="icon">🖨</span> Final Output / Print</div>
     </nav>
 
     <!-- MAIN CONTENT -->
@@ -396,28 +367,12 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
           <div class="dash-card"><div class="dc-num" id="dPctComplete">0%</div><div class="dc-lbl">Overall Progress</div></div>
         </div>
         <div class="card">
-          <div class="card-title">📋 Quick Start — Form Categories</div>
+          <div class="card-title">📋 Form Categories</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div class="recent-item" onclick="showPage('form-A1',null)">
-              <span style="font-size:22px">🏥</span>
-              <div><strong style="font-size:13px">A — New Customer</strong><br><small style="color:var(--gray);font-size:11px">A-1, A-2, A-3 · Practice &amp; Provider setup</small></div>
-              <span class="badge badge-gold" style="margin-left:auto">NC</span>
-            </div>
-            <div class="recent-item" onclick="showPage('form-B1',null)">
-              <span style="font-size:22px">🎓</span>
-              <div><strong style="font-size:13px">B — Credentialing</strong><br><small style="color:var(--gray);font-size:11px">B-1, B-2, B-3 · Licenses &amp; enrollment</small></div>
-              <span class="badge badge-gray" style="margin-left:auto">CR</span>
-            </div>
-            <div class="recent-item" onclick="showPage('form-C1',null)">
-              <span style="font-size:22px">💼</span>
-              <div><strong style="font-size:13px">C — Contracts</strong><br><small style="color:var(--gray);font-size:11px">C-1, C-2, C-3 · Agreements &amp; HIPAA</small></div>
-              <span class="badge badge-gray" style="margin-left:auto">CT</span>
-            </div>
-            <div class="recent-item" onclick="showPage('form-D1',null)">
-              <span style="font-size:22px">📝</span>
-              <div><strong style="font-size:13px">D — Mix Forms</strong><br><small style="color:var(--gray);font-size:11px">D-1, D-2, D-3 · Fees, PHI, requests</small></div>
-              <span class="badge badge-gray" style="margin-left:auto">MX</span>
-            </div>
+            <div class="recent-item" onclick="showPage('form-NASF0001',null)"><span style="font-size:22px">💼</span><div><strong style="font-size:13px">Billing Forms</strong><br><small style="color:var(--gray);font-size:11px">NASF0001, NASF0001A, Audit, NDA, Reports</small></div><span class="badge badge-gold" style="margin-left:auto">5</span></div>
+            <div class="recent-item" onclick="showPage('form-CARC0001',null)"><span style="font-size:22px">🎓</span><div><strong style="font-size:13px">Credentialing</strong><br><small style="color:var(--gray);font-size:11px">CARC0001 Checklist, CARC0001A Agreement</small></div><span class="badge badge-gray" style="margin-left:auto">2</span></div>
+            <div class="recent-item" onclick="showPage('form-STD0001',null)"><span style="font-size:22px">📝</span><div><strong style="font-size:13px">Extra Forms</strong><br><small style="color:var(--gray);font-size:11px">STD0001, STD0002</small></div><span class="badge badge-gray" style="margin-left:auto">2</span></div>
+            <div class="recent-item" onclick="showPage('documents',null)"><span style="font-size:22px">📁</span><div><strong style="font-size:13px">Document Upload</strong><br><small style="color:var(--gray);font-size:11px">15 required documents</small></div><span class="badge badge-gray" style="margin-left:auto">15</span></div>
           </div>
         </div>
         <div class="card">
@@ -427,1163 +382,1361 @@ body{font-family:'DM Sans',sans-serif;background:#f7f7f7;color:var(--text);min-h
             <div class="step"><span class="sn">②</span>Upload Docs</div>
             <div class="step"><span class="sn">③</span>Review</div>
             <div class="step"><span class="sn">④</span>Submit</div>
-            <div class="step"><span class="sn">⑤</span>Client Approval</div>
-            <div class="step"><span class="sn">⑥</span>Final Output</div>
+            <div class="step"><span class="sn">⑤</span>Print Output</div>
           </div>
-          <p style="font-size:12px;color:var(--gray)">Complete forms in any order, then proceed to Review → Submit → Send for client approval → Generate final output.</p>
+          <p style="font-size:12px;color:var(--gray);margin-top:8px">Data entered in any form auto-fills matching fields across all other forms. Complete all forms then proceed to Final Output to print.</p>
         </div>
       </div>
 
-      <!-- A-1 ACCOUNT SETUP -->
-      <div id="page-form-A1" class="page">
+      <!-- ===== BILLING: CONTRACT BILLING NASF0001 ===== -->
+      <div id="page-form-NASF0001" class="page">
         <div class="page-header">
-          <div class="form-number">Form A-1 · New Customer</div>
-          <h2>New Account Setup Form</h2>
-          <p>IMDC LLC — Primary onboarding details for new client accounts</p>
+          <div class="form-number">Billing · NASF0001</div>
+          <h2>Contract Billing Form — NASF0001</h2>
+          <p>Primary billing services agreement — data auto-fills all common fields across forms</p>
         </div>
-        <p class="required-note"><span>★</span> Required fields &nbsp; <span>?</span> = Field requires attention</p>
-
+        <p class="required-note"><span>★</span> Required fields</p>
         <div class="card">
-          <div class="card-title"><span class="icon">🏢</span> Practice Information</div>
+          <div class="card-title">🏢 Client / Practice Information</div>
           <div class="grid2">
-            <div class="field span2"><label>Practice / Business Name <span class="req">★</span></label><input type="text" id="a1_practice_name" placeholder="? Enter legal practice name" oninput="autoSave()"></div>
-            <div class="field"><label>Street Address <span class="req">★</span></label><input type="text" id="a1_address" placeholder="? Street address" oninput="autoSave()"></div>
-            <div class="field"><label>Address Line 2</label><input type="text" id="a1_address2" placeholder="Suite, floor, unit…" oninput="autoSave()"></div>
-            <div class="field"><label>City <span class="req">★</span></label><input type="text" id="a1_city" placeholder="? City" oninput="autoSave()"></div>
+            <div class="field span2"><label>Practice / Business Name <span class="req">★</span></label><input type="text" id="g_practice_name" placeholder="Legal practice or business name" oninput="autoFill('g_practice_name');autoSave()"></div>
+            <div class="field"><label>Street Address <span class="req">★</span></label><input type="text" id="g_address" placeholder="Street address" oninput="autoFill('g_address');autoSave()"></div>
+            <div class="field"><label>Address Line 2</label><input type="text" id="g_address2" placeholder="Suite, unit..." oninput="autoFill('g_address2');autoSave()"></div>
+            <div class="field"><label>City <span class="req">★</span></label><input type="text" id="g_city" placeholder="City" oninput="autoFill('g_city');autoSave()"></div>
             <div class="field"><label>State <span class="req">★</span></label>
-              <select id="a1_state" onchange="autoSave()">
+              <select id="g_state" onchange="autoFill('g_state');autoSave()">
                 <option value="">— Select State —</option>
                 <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option><option>Washington DC</option>
               </select>
             </div>
-            <div class="field"><label>ZIP Code <span class="req">★</span></label><input type="text" id="a1_zip" placeholder="? ZIP / Postal code" maxlength="10" oninput="autoSave()"></div>
+            <div class="field"><label>ZIP Code <span class="req">★</span></label><input type="text" id="g_zip" placeholder="ZIP code" maxlength="10" oninput="autoFill('g_zip');autoSave()"></div>
           </div>
         </div>
-
         <div class="card">
-          <div class="card-title"><span class="icon">📞</span> Contact Information</div>
+          <div class="card-title">📞 Contact Information</div>
           <div class="grid2">
-            <div class="field"><label>Email Address <span class="req">★</span></label><input type="email" id="a1_email" placeholder="? practice@domain.com" oninput="autoSave()"></div>
-            <div class="field"><label>Phone Number <span class="req">★</span></label><input type="tel" id="a1_phone" placeholder="? (555) 000-0000" oninput="autoSave()"></div>
-            <div class="field"><label>Fax Number</label><input type="tel" id="a1_fax" placeholder="(555) 000-0000" oninput="autoSave()"></div>
-            <div class="field"><label>Website</label><input type="url" id="a1_website" placeholder="https://www.practice.com" oninput="autoSave()"></div>
+            <div class="field"><label>Email Address <span class="req">★</span></label><input type="email" id="g_email" placeholder="practice@domain.com" oninput="autoFill('g_email');autoSave()"></div>
+            <div class="field"><label>Phone Number <span class="req">★</span></label><input type="tel" id="g_phone" placeholder="(555) 000-0000" oninput="autoFill('g_phone');autoSave()"></div>
+            <div class="field"><label>Fax Number</label><input type="tel" id="g_fax" placeholder="(555) 000-0000" oninput="autoFill('g_fax');autoSave()"></div>
+            <div class="field"><label>Federal Tax ID (EIN) <span class="req">★</span></label><input type="text" id="g_ein" placeholder="XX-XXXXXXX" oninput="autoFill('g_ein');autoSave()"></div>
           </div>
         </div>
-
         <div class="card">
-          <div class="card-title"><span class="icon">💳</span> Billing Contact</div>
+          <div class="card-title">👤 Provider / Authorized Signatory</div>
           <div class="grid2">
-            <div class="field"><label>Billing Contact Name</label><input type="text" id="a1_bill_name" placeholder="Full name" oninput="autoSave()"></div>
-            <div class="field"><label>Billing Contact Email</label><input type="email" id="a1_bill_email" placeholder="billing@practice.com" oninput="autoSave()"></div>
-            <div class="field"><label>Billing Contact Phone</label><input type="tel" id="a1_bill_phone" placeholder="(555) 000-0000" oninput="autoSave()"></div>
-            <div class="field"><label>Billing Software</label><input type="text" id="a1_bill_software" placeholder="e.g., Kareo, AdvancedMD" oninput="autoSave()"></div>
+            <div class="field"><label>Provider / President Name <span class="req">★</span></label><input type="text" id="g_provider_name" placeholder="Dr. First Last" oninput="autoFill('g_provider_name');autoSave()"></div>
+            <div class="field"><label>Provider Title</label><input type="text" id="g_provider_title" placeholder="e.g., MD, DDS, Executive Director" oninput="autoFill('g_provider_title');autoSave()"></div>
+            <div class="field"><label>Individual NPI</label><input type="text" id="g_npi" placeholder="10-digit NPI" maxlength="10" oninput="autoFill('g_npi');autoSave()"></div>
+            <div class="field"><label>Group NPI</label><input type="text" id="g_group_npi" placeholder="10-digit Group NPI" maxlength="10" oninput="autoFill('g_group_npi');autoSave()"></div>
           </div>
         </div>
-
         <div class="card">
-          <div class="card-title"><span class="icon">📝</span> Special Requests / Notes</div>
-          <div class="field"><label>Registration Notes</label><textarea id="a1_notes" placeholder="Any specific registration requirements or notes…" oninput="autoSave()"></textarea></div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-primary" onclick="markFormDone('A1');showPage('form-A2',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print This Form</button>
-        </div>
-      </div>
-
-      <!-- A-2 PRACTICE PROFILE -->
-      <div id="page-form-A2" class="page">
-        <div class="page-header">
-          <div class="form-number">Form A-2 · New Customer</div>
-          <h2>Practice Profile Form</h2>
-          <p>Detailed practice demographics and service information</p>
-        </div>
-        <p class="required-note"><span>★</span> Required &nbsp; <span>?</span> = Needs your input</p>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">🏛</span> Practice Details</div>
-          <div class="grid2">
-            <div class="field"><label>Federal Tax ID (EIN) <span class="req">★</span></label><input type="text" id="a2_ein" placeholder="? XX-XXXXXXX" oninput="autoSave()"></div>
-            <div class="field"><label>Years in Business</label><input type="number" id="a2_years" placeholder="e.g., 12" oninput="autoSave()"></div>
-            <div class="field"><label>Major Services / Specialties <span class="req">★</span></label><input type="text" id="a2_services" placeholder="? e.g., Internal Medicine, Dental" oninput="autoSave()"></div>
-            <div class="field"><label>Number of Providers</label><input type="number" id="a2_providers" placeholder="e.g., 5" oninput="autoSave()"></div>
-            <div class="field"><label>Group NPI</label><input type="text" id="a2_gnpi" placeholder="10-digit NPI" maxlength="10" oninput="autoSave()"></div>
-            <div class="field"><label>Medicare Group PTAN</label><input type="text" id="a2_gptan" placeholder="PTAN number" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">💻</span> Software &amp; Systems</div>
-          <div class="grid2">
-            <div class="field"><label>Billing Software</label><input type="text" id="a2_bsoft" placeholder="e.g., Kareo, Athena" oninput="autoSave()"></div>
-            <div class="field"><label>Billing Software Login</label><input type="text" id="a2_blogin" placeholder="Username" oninput="autoSave()"></div>
-            <div class="field"><label>EHR / EMR System</label><input type="text" id="a2_ehr" placeholder="e.g., Epic, Cerner" oninput="autoSave()"></div>
-            <div class="field"><label>EHR Login</label><input type="text" id="a2_ehrlogin" placeholder="Username" oninput="autoSave()"></div>
-          </div>
-          <div style="margin-top:12px">
-            <div class="field"><label>Additional Notes on Systems</label><textarea id="a2_sysnotes" placeholder="Any notes on software setup, integrations, access levels…" oninput="autoSave()"></textarea></div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-A1',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('A2');showPage('form-A3',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- A-3 PROVIDER INFO -->
-      <div id="page-form-A3" class="page">
-        <div class="page-header">
-          <div class="form-number">Form A-3 · New Customer</div>
-          <h2>Provider Information Form</h2>
-          <p>Individual provider details and identifiers</p>
-        </div>
-        <p class="required-note"><span>★</span> Required &nbsp; <span>?</span> = Needs your input</p>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">👤</span> Primary Provider</div>
-          <div class="grid2">
-            <div class="field"><label>President / Provider Name <span class="req">★</span></label><input type="text" id="a3_prov_name" placeholder="? Dr. First Last" oninput="autoSave()"></div>
-            <div class="field"><label>Provider Phone</label><input type="tel" id="a3_prov_phone" placeholder="(555) 000-0000" oninput="autoSave()"></div>
-            <div class="field"><label>Individual NPI</label><input type="text" id="a3_inpi" placeholder="10-digit NPI" maxlength="10" oninput="autoSave()"></div>
-            <div class="field"><label>Individual PTAN</label><input type="text" id="a3_iptan" placeholder="PTAN number" oninput="autoSave()"></div>
-            <div class="field"><label>Provider SSN (last 4 only)</label><input type="text" id="a3_ssn" placeholder="XXXX" maxlength="4" oninput="autoSave()"></div>
-            <div class="field"><label>Provider Date of Birth</label><input type="date" id="a3_dob" oninput="autoSave()"></div>
-            <div class="field"><label>CAQH Login</label><input type="text" id="a3_caqh_login" placeholder="CAQH username" oninput="autoSave()"></div>
-            <div class="field"><label>CAQH Password</label><input type="password" id="a3_caqh_pw" placeholder="CAQH password" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">✍</span> Authorized Representative</div>
-          <div class="grid2">
-            <div class="field"><label>Authorized Signatory Name <span class="req">★</span></label><input type="text" id="a3_sig_name" placeholder="? Full legal name" oninput="autoSave()"></div>
-            <div class="field"><label>Signatory Title</label><input type="text" id="a3_sig_title" placeholder="e.g., Executive Director" oninput="autoSave()"></div>
-            <div class="field"><label>Signatory Date</label><input type="date" id="a3_sig_date" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-A2',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('A3');showPage('form-B1',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- B-1 CREDENTIALS -->
-      <div id="page-form-B1" class="page">
-        <div class="page-header">
-          <div class="form-number">Form B-1 · Credentialing</div>
-          <h2>Provider Credentials Form</h2>
-          <p>Licensure, education, and professional credentials</p>
-        </div>
-        <p class="required-note"><span>★</span> Required &nbsp; <span>?</span> = Needs your input</p>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">📜</span> Licenses &amp; Certifications</div>
-          <div class="grid2">
-            <div class="field"><label>State Medical License # <span class="req">★</span></label><input type="text" id="b1_lic" placeholder="? License number" oninput="autoSave()"></div>
-            <div class="field"><label>License State <span class="req">★</span></label><input type="text" id="b1_lic_state" placeholder="? Issuing state" oninput="autoSave()"></div>
-            <div class="field"><label>License Expiration Date</label><input type="date" id="b1_lic_exp" oninput="autoSave()"></div>
-            <div class="field"><label>DEA Certificate #</label><input type="text" id="b1_dea" placeholder="DEA number if applicable" oninput="autoSave()"></div>
-            <div class="field"><label>DEA Expiration</label><input type="date" id="b1_dea_exp" oninput="autoSave()"></div>
-            <div class="field"><label>Board Certification</label><input type="text" id="b1_board" placeholder="e.g., ABIM, ABP" oninput="autoSave()"></div>
-            <div class="field"><label>Specialty</label><input type="text" id="b1_specialty" placeholder="Primary specialty" oninput="autoSave()"></div>
-            <div class="field"><label>Sub-Specialty</label><input type="text" id="b1_subspec" placeholder="If applicable" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">🏛</span> Education &amp; Training</div>
-          <div class="grid2">
-            <div class="field"><label>Medical School</label><input type="text" id="b1_med_school" placeholder="Name of institution" oninput="autoSave()"></div>
-            <div class="field"><label>Graduation Year</label><input type="text" id="b1_grad_yr" placeholder="YYYY" maxlength="4" oninput="autoSave()"></div>
-            <div class="field"><label>Residency Program</label><input type="text" id="b1_residency" placeholder="Institution name" oninput="autoSave()"></div>
-            <div class="field"><label>Residency Completion Year</label><input type="text" id="b1_res_yr" placeholder="YYYY" maxlength="4" oninput="autoSave()"></div>
-            <div class="field span2"><label>Fellowship / Additional Training</label><textarea id="b1_fellowship" placeholder="List any fellowship programs or additional certifications…" style="min-height:60px" oninput="autoSave()"></textarea></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">🛡</span> Malpractice Insurance</div>
-          <div class="grid2">
-            <div class="field"><label>Insurance Carrier <span class="req">★</span></label><input type="text" id="b1_mal_carrier" placeholder="? e.g., ProAssurance" oninput="autoSave()"></div>
-            <div class="field"><label>Policy Number</label><input type="text" id="b1_mal_policy" placeholder="Policy #" oninput="autoSave()"></div>
-            <div class="field"><label>Coverage Amount (per occurrence)</label><input type="text" id="b1_mal_per" placeholder="e.g., $1,000,000" oninput="autoSave()"></div>
-            <div class="field"><label>Coverage Amount (aggregate)</label><input type="text" id="b1_mal_agg" placeholder="e.g., $3,000,000" oninput="autoSave()"></div>
-            <div class="field"><label>Policy Expiration</label><input type="date" id="b1_mal_exp" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-A3',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('B1');showPage('form-B2',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- B-2 INSURANCE ENROLLMENT -->
-      <div id="page-form-B2" class="page">
-        <div class="page-header">
-          <div class="form-number">Form B-2 · Credentialing</div>
-          <h2>Insurance Enrollment Form</h2>
-          <p>Payer enrollment details and plan participation</p>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">🏛</span> Primary Payer Information</div>
-          <div class="grid2">
-            <div class="field"><label>Primary Insurance Network <span class="req">★</span></label><input type="text" id="b2_p1_name" placeholder="? e.g., Blue Cross Blue Shield" oninput="autoSave()"></div>
-            <div class="field"><label>Provider ID / Contract #</label><input type="text" id="b2_p1_id" placeholder="Provider ID with payer" oninput="autoSave()"></div>
-            <div class="field"><label>Effective Date</label><input type="date" id="b2_p1_eff" oninput="autoSave()"></div>
-            <div class="field"><label>Enrollment Status</label>
-              <select id="b2_p1_status" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>Active</option><option>Pending</option><option>In Process</option><option>Not Enrolled</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">🏛</span> Secondary Payer</div>
-          <div class="grid2">
-            <div class="field"><label>Secondary Insurance Network</label><input type="text" id="b2_p2_name" placeholder="e.g., Aetna" oninput="autoSave()"></div>
-            <div class="field"><label>Provider ID / Contract #</label><input type="text" id="b2_p2_id" placeholder="Provider ID" oninput="autoSave()"></div>
-            <div class="field"><label>Effective Date</label><input type="date" id="b2_p2_eff" oninput="autoSave()"></div>
-            <div class="field"><label>Enrollment Status</label>
-              <select id="b2_p2_status" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>Active</option><option>Pending</option><option>In Process</option><option>Not Enrolled</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">🏥</span> Medicare / Medicaid</div>
-          <div class="grid2">
-            <div class="field"><label>Medicare Enrollment Status</label>
-              <select id="b2_mc_status" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>Participating</option><option>Non-Participating</option><option>Opted Out</option><option>Pending</option>
-              </select>
-            </div>
-            <div class="field"><label>Medicare Group PTAN</label><input type="text" id="b2_mc_gptan" placeholder="Group PTAN" oninput="autoSave()"></div>
-            <div class="field"><label>Medicaid State Plan</label><input type="text" id="b2_md_state" placeholder="State" oninput="autoSave()"></div>
-            <div class="field"><label>Medicaid Provider ID</label><input type="text" id="b2_md_id" placeholder="Medicaid ID" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-B1',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('B2');showPage('form-B3',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- B-3 CAQH -->
-      <div id="page-form-B3" class="page">
-        <div class="page-header">
-          <div class="form-number">Form B-3 · Credentialing</div>
-          <h2>CAQH Profile Form</h2>
-          <p>Council for Affordable Quality Healthcare provider profile details</p>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">🪪</span> CAQH Account</div>
-          <div class="grid2">
-            <div class="field"><label>CAQH Provider ID <span class="req">★</span></label><input type="text" id="b3_caqh_id" placeholder="? CAQH ID number" oninput="autoSave()"></div>
-            <div class="field"><label>CAQH Username</label><input type="text" id="b3_caqh_user" placeholder="Login username" oninput="autoSave()"></div>
-            <div class="field"><label>CAQH Password</label><input type="password" id="b3_caqh_pw" placeholder="Account password" oninput="autoSave()"></div>
-            <div class="field"><label>Profile Last Attested</label><input type="date" id="b3_attested" oninput="autoSave()"></div>
-            <div class="field"><label>Re-Attestation Due</label><input type="date" id="b3_reattest" oninput="autoSave()"></div>
-            <div class="field"><label>Authorization to Access?</label>
-              <select id="b3_auth" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>Yes — Authorized</option><option>No — Not Yet Authorized</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-B2',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('B3');showPage('form-C1',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- C-1 BILLING AGREEMENT -->
-      <div id="page-form-C1" class="page">
-        <div class="page-header">
-          <div class="form-number">Form C-1 · Contract</div>
-          <h2>Billing Services Agreement</h2>
-          <p>IMDC LLC Revenue Cycle Management Agreement</p>
-        </div>
-        <p class="required-note"><span>★</span> Required &nbsp; <span>?</span> = Needs your input</p>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">📋</span> Agreement Parties</div>
-          <div class="grid2">
-            <div class="field span2"><label>Client Name / Entity <span class="req">★</span></label><input type="text" id="c1_client" placeholder="? Full legal name or business entity" oninput="autoSave()"></div>
-            <div class="field"><label>Effective Date <span class="req">★</span></label><input type="date" id="c1_eff_date" oninput="autoSave()"></div>
-            <div class="field"><label>Initial Term (years)</label><input type="number" id="c1_term" placeholder="e.g., 1" oninput="autoSave()"></div>
-            <div class="field"><label>Auto-Renewal Term (years)</label><input type="number" id="c1_renewal" placeholder="e.g., 1" oninput="autoSave()"></div>
-            <div class="field"><label>Breach Cure Period (days)</label><input type="number" id="c1_breach" placeholder="e.g., 30" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">💵</span> Fee Structure</div>
+          <div class="card-title">💵 Billing Agreement Terms</div>
           <div class="grid3">
-            <div class="field"><label>Base Fee (% of net collections) <span class="req">★</span></label><input type="number" id="c1_base_fee" placeholder="? e.g., 8" step="0.1" oninput="autoSave()"></div>
-            <div class="field"><label>Late Payment Interest (%/yr)</label><input type="number" id="c1_late_int" placeholder="e.g., 1.5" step="0.1" oninput="autoSave()"></div>
-            <div class="field"><label>Provider Enrollment Fee (new) $</label><input type="number" id="c1_enroll_new" placeholder="e.g., 150" oninput="autoSave()"></div>
-            <div class="field"><label>Provider Enrollment Fee (renewal) $</label><input type="number" id="c1_enroll_ren" placeholder="e.g., 75" oninput="autoSave()"></div>
-            <div class="field"><label>Manual Entry Fee (per encounter) $</label><input type="number" id="c1_manual" placeholder="e.g., 1.50" step="0.01" oninput="autoSave()"></div>
-            <div class="field"><label>Scanning Fee (per page) $</label><input type="number" id="c1_scan" placeholder="e.g., 0.25" step="0.01" oninput="autoSave()"></div>
+            <div class="field"><label>Effective Date <span class="req">★</span></label><input type="date" id="g_eff_date" oninput="autoFill('g_eff_date');autoSave()"></div>
+            <div class="field"><label>Initial Term (years)</label><input type="number" id="nasf_term" placeholder="1" oninput="autoSave()"></div>
+            <div class="field"><label>Base Fee (% of net collections)</label><input type="number" id="nasf_base_fee" placeholder="8" step="0.1" oninput="autoSave()"></div>
+            <div class="field"><label>Late Payment Interest (%/yr)</label><input type="number" id="nasf_late_int" placeholder="1.5" step="0.1" oninput="autoSave()"></div>
+            <div class="field"><label>Provider Enrollment Fee (new) $</label><input type="number" id="nasf_enroll_new" placeholder="150" oninput="autoSave()"></div>
+            <div class="field"><label>Wind-Down Period (days)</label><input type="number" id="nasf_winddown" placeholder="90" oninput="autoSave()"></div>
           </div>
         </div>
-
         <div class="card">
-          <div class="card-title"><span class="icon">⚙</span> Operational Settings</div>
-          <div class="grid3">
-            <div class="field"><label>Min Monthly Claims per Payer</label><input type="number" id="c1_min_claims" placeholder="e.g., 10" oninput="autoSave()"></div>
-            <div class="field"><label>Min Patient Statements</label><input type="number" id="c1_min_stmt" placeholder="e.g., 25" oninput="autoSave()"></div>
-            <div class="field"><label>Wind-Down Period (days)</label><input type="number" id="c1_winddown" placeholder="e.g., 90" oninput="autoSave()"></div>
-            <div class="field"><label>Governing State</label><input type="text" id="c1_gov_state" placeholder="e.g., Texas" oninput="autoSave()"></div>
-            <div class="field"><label>Jurisdiction County/City</label><input type="text" id="c1_jurisdiction" placeholder="e.g., Harris County" oninput="autoSave()"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><span class="icon">✍</span> Client Signature</div>
+          <div class="card-title">✍ Client Signature</div>
           <div class="grid2">
-            <div class="field"><label>Signatory Name <span class="req">★</span></label><input type="text" id="c1_sig_name" placeholder="? Authorized representative name" oninput="autoSave()"></div>
-            <div class="field"><label>Title</label><input type="text" id="c1_sig_title" placeholder="Position / title" oninput="autoSave()"></div>
-            <div class="field"><label>Signature Date</label><input type="date" id="c1_sig_date" oninput="autoSave()"></div>
-          </div>
-          <div style="margin-top:14px">
-            <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px">Electronic Signature Pad</label>
-            <div class="sig-pad"><canvas id="sigC1" width="600" height="100"></canvas></div>
-            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigC1')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigC1')">💾 Save Sig</button></div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-B3',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('C1');showPage('form-C2',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- C-2 BAA/HIPAA -->
-      <div id="page-form-C2" class="page">
-        <div class="page-header">
-          <div class="form-number">Form C-2 · Contract</div>
-          <h2>Business Associate Agreement (BAA / HIPAA)</h2>
-          <p>HIPAA-compliant business associate agreement between client and IMDC LLC</p>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">🔒</span> Covered Entity</div>
-          <div class="grid2">
-            <div class="field span2"><label>Covered Entity Name <span class="req">★</span></label><input type="text" id="c2_entity" placeholder="? Legal entity name" oninput="autoSave()"></div>
-            <div class="field"><label>Entity Type</label>
-              <select id="c2_type" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>LLC</option><option>Corporation</option><option>Partnership</option><option>Sole Proprietor</option><option>Non-Profit</option><option>Other</option>
-              </select>
-            </div>
-            <div class="field"><label>State of Organization</label><input type="text" id="c2_org_state" placeholder="State" oninput="autoSave()"></div>
-            <div class="field"><label>Agreement Date</label><input type="date" id="c2_date" oninput="autoSave()"></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">👤</span> Privacy Officer / Contact</div>
-          <div class="grid2">
-            <div class="field"><label>Privacy Officer Name <span class="req">★</span></label><input type="text" id="c2_po_name" placeholder="? Name" oninput="autoSave()"></div>
-            <div class="field"><label>Title</label><input type="text" id="c2_po_title" placeholder="Title" oninput="autoSave()"></div>
-            <div class="field"><label>Phone</label><input type="tel" id="c2_po_phone" placeholder="(555) 000-0000" oninput="autoSave()"></div>
-            <div class="field"><label>Email</label><input type="email" id="c2_po_email" placeholder="privacy@practice.com" oninput="autoSave()"></div>
-            <div class="field span2"><label>Mailing Address</label><input type="text" id="c2_po_addr" placeholder="Full mailing address" oninput="autoSave()"></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">✅</span> HIPAA Compliance Acknowledgments</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="c2_ack1" onchange="autoSave()" style="margin-top:2px;width:auto"> Covered Entity acknowledges HIPAA / HITECH obligations</label>
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="c2_ack2" onchange="autoSave()" style="margin-top:2px;width:auto"> Covered Entity has provided PHI notice to patients</label>
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="c2_ack3" onchange="autoSave()" style="margin-top:2px;width:auto"> Covered Entity will notify Business Associate of restriction changes</label>
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="c2_ack4" onchange="autoSave()" style="margin-top:2px;width:auto"> Parties agree to amend BAA as regulations change</label>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">✍</span> Authorized Signature</div>
-          <div class="grid2">
-            <div class="field"><label>Covered Entity Signatory</label><input type="text" id="c2_sig_name" placeholder="Full name" oninput="autoSave()"></div>
-            <div class="field"><label>Title</label><input type="text" id="c2_sig_title" placeholder="Title" oninput="autoSave()"></div>
-            <div class="field"><label>Date</label><input type="date" id="c2_sig_date" oninput="autoSave()"></div>
+            <div class="field"><label>Signatory Name <span class="req">★</span></label><input type="text" id="g_sig_name" placeholder="Authorized representative" oninput="autoFill('g_sig_name');autoSave()"></div>
+            <div class="field"><label>Signature Date</label><input type="date" id="g_sig_date" oninput="autoFill('g_sig_date');autoSave()"></div>
           </div>
           <div style="margin-top:14px">
             <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px">Electronic Signature</label>
-            <div class="sig-pad"><canvas id="sigC2" width="600" height="100"></canvas></div>
-            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigC2')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigC2')">💾 Save Sig</button></div>
+            <div class="sig-pad"><canvas id="sigNASF0001" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigNASF0001')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigNASF0001')">💾 Save</button></div>
           </div>
         </div>
         <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-C1',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('C2');showPage('form-C3',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary" onclick="markFormDone('NASF0001');showPage('form-NASF0001A',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('NASF0001')">🖨 Print This Form</button>
         </div>
       </div>
 
-      <!-- C-3 SERVICE TERMS -->
-      <div id="page-form-C3" class="page">
+      <!-- ===== BILLING: CONTRACT NASF0001A ===== -->
+      <div id="page-form-NASF0001A" class="page">
         <div class="page-header">
-          <div class="form-number">Form C-3 · Contract</div>
-          <h2>Service Terms &amp; Conditions</h2>
-          <p>Additional service-specific terms and operational agreements</p>
+          <div class="form-number">Billing · NASF0001A</div>
+          <h2>Contract — NASF0001A</h2>
+          <p>Contract addendum — common fields auto-filled from NASF0001</p>
         </div>
+        <p class="required-note"><span>★</span> Required fields</p>
         <div class="card">
-          <div class="card-title"><span class="icon">📜</span> Service Scope</div>
+          <div class="card-title">🏢 Client Information <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
           <div class="grid2">
-            <div class="field span2"><label>Services to be Provided <span class="req">★</span></label><textarea id="c3_services" placeholder="? List all services IMDC will provide (billing, credentialing, etc.)" oninput="autoSave()"></textarea></div>
-            <div class="field"><label>Service Start Date</label><input type="date" id="c3_start" oninput="autoSave()"></div>
-            <div class="field"><label>Contract Review Date</label><input type="date" id="c3_review" oninput="autoSave()"></div>
-            <div class="field span2"><label>Special Terms / Exclusions</label><textarea id="c3_special" placeholder="Any special terms, exclusions, or custom arrangements…" oninput="autoSave()"></textarea></div>
+            <div class="field span2"><label>Practice / Business Name <span class="req">★</span></label><input type="text" id="g_practice_name_2" placeholder="Auto-fills from Contract Billing" oninput="autoSave()"></div>
+            <div class="field"><label>Address</label><input type="text" id="g_address_2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>City, State, ZIP</label><input type="text" id="g_csz_2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Email</label><input type="email" id="g_email_2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Phone</label><input type="tel" id="g_phone_2" placeholder="Auto-fills" oninput="autoSave()"></div>
           </div>
         </div>
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-C2',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('C3');showPage('form-D1',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- D-1 CPT FEE SCHEDULE -->
-      <div id="page-form-D1" class="page">
-        <div class="page-header">
-          <div class="form-number">Form D-1 · Mix Forms</div>
-          <h2>CPT Fee Schedule</h2>
-          <p>Procedure codes and associated fees for billing purposes</p>
-        </div>
         <div class="card">
-          <div class="card-title"><span class="icon">💊</span> Fee Schedule Entries</div>
-          <div id="cptRows"></div>
-          <button class="btn btn-secondary" onclick="addCPTRow()" style="margin-top:10px">＋ Add CPT Code</button>
-        </div>
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-C3',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('D1');showPage('form-D2',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- D-2 PHI RELEASE -->
-      <div id="page-form-D2" class="page">
-        <div class="page-header">
-          <div class="form-number">Form D-2 · Mix Forms</div>
-          <h2>PHI Release Authorization</h2>
-          <p>Protected Health Information release authorization form</p>
-        </div>
-        <div class="card">
-          <div class="card-title"><span class="icon">📨</span> Release Authorization</div>
+          <div class="card-title">📋 Addendum Details</div>
           <div class="grid2">
-            <div class="field span2"><label>Patient / Entity Name <span class="req">★</span></label><input type="text" id="d2_name" placeholder="? Full name" oninput="autoSave()"></div>
-            <div class="field"><label>Date of Birth</label><input type="date" id="d2_dob" oninput="autoSave()"></div>
-            <div class="field"><label>Medical Record #</label><input type="text" id="d2_mrn" placeholder="MRN if known" oninput="autoSave()"></div>
-            <div class="field span2"><label>Information to be Released</label><textarea id="d2_info" placeholder="Describe what PHI is being released…" oninput="autoSave()"></textarea></div>
-            <div class="field span2"><label>Purpose of Release</label><textarea id="d2_purpose" placeholder="Reason for disclosure…" oninput="autoSave()"></textarea></div>
-            <div class="field"><label>Release To (Name/Organization)</label><input type="text" id="d2_release_to" placeholder="Recipient" oninput="autoSave()"></div>
-            <div class="field"><label>Expiration Date of Authorization</label><input type="date" id="d2_exp" oninput="autoSave()"></div>
+            <div class="field"><label>Addendum Effective Date <span class="req">★</span></label><input type="date" id="nasf1a_eff" oninput="autoSave()"></div>
+            <div class="field"><label>Amendment Number</label><input type="text" id="nasf1a_amend_num" placeholder="e.g., Amendment #1" oninput="autoSave()"></div>
+            <div class="field span2"><label>Scope of Amendment <span class="req">★</span></label><textarea id="nasf1a_scope" placeholder="Describe changes/additions to the original contract..." oninput="autoSave()"></textarea></div>
+            <div class="field span2"><label>Special Terms</label><textarea id="nasf1a_terms" placeholder="Any additional special terms..." oninput="autoSave()"></textarea></div>
           </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-D1',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('D2');showPage('form-D3',null)">Save &amp; Continue →</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-
-      <!-- D-3 SPECIAL REQUESTS -->
-      <div id="page-form-D3" class="page">
-        <div class="page-header">
-          <div class="form-number">Form D-3 · Mix Forms</div>
-          <h2>Special Requests &amp; Notes</h2>
-          <p>Additional requests, custom instructions, or miscellaneous intake information</p>
         </div>
         <div class="card">
-          <div class="card-title"><span class="icon">📝</span> Special Requests</div>
-          <div class="field"><label>Custom Instructions / Special Requests</label><textarea id="d3_requests" placeholder="Enter any special handling instructions, custom requests, or notes for the IMDC team…" style="min-height:120px" oninput="autoSave()"></textarea></div>
-          <div style="margin-top:14px" class="grid2">
-            <div class="field"><label>Requested Start Date</label><input type="date" id="d3_start" oninput="autoSave()"></div>
-            <div class="field"><label>Priority Level</label>
-              <select id="d3_priority" onchange="autoSave()">
-                <option value="">— Select —</option>
-                <option>Standard</option><option>High Priority</option><option>Urgent</option>
-              </select>
-            </div>
+          <div class="card-title">✍ Signature</div>
+          <div class="grid2">
+            <div class="field"><label>Signatory Name</label><input type="text" id="g_sig_name_2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_2" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigNASF0001A" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigNASF0001A')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigNASF0001A')">💾 Save</button></div>
           </div>
         </div>
         <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('form-D2',null)">← Back</button>
-          <button class="btn btn-primary" onclick="markFormDone('D3');showPage('documents',null)">Continue to Documents →</button>
+          <button class="btn btn-secondary" onclick="showPage('form-NASF0001',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('NASF0001A');showPage('form-AUDIT',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('NASF0001A')">🖨 Print</button>
         </div>
       </div>
 
-      <!-- DOCUMENT UPLOAD -->
+      <!-- ===== BILLING: AUDIT NASF0001 ===== -->
+      <div id="page-form-AUDIT" class="page">
+        <div class="page-header">
+          <div class="form-number">Billing · Audit NASF0001</div>
+          <h2>Audit Form — NASF0001</h2>
+          <p>Billing audit form — same fields as Contract Billing, common data auto-filled</p>
+        </div>
+        <p class="required-note"><span>★</span> Required fields</p>
+        <div class="card">
+          <div class="card-title">🏢 Client Information <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Practice / Business Name <span class="req">★</span></label><input type="text" id="g_practice_name_3" placeholder="Auto-fills from Contract Billing" oninput="autoSave()"></div>
+            <div class="field"><label>Address</label><input type="text" id="g_address_3" oninput="autoSave()"></div>
+            <div class="field"><label>City, State, ZIP</label><input type="text" id="g_csz_3" oninput="autoSave()"></div>
+            <div class="field"><label>Email</label><input type="email" id="g_email_3" oninput="autoSave()"></div>
+            <div class="field"><label>Phone</label><input type="tel" id="g_phone_3" oninput="autoSave()"></div>
+            <div class="field"><label>EIN</label><input type="text" id="g_ein_3" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔍 Audit Information</div>
+          <div class="grid2">
+            <div class="field"><label>Audit Period Start <span class="req">★</span></label><input type="date" id="audit_start" oninput="autoSave()"></div>
+            <div class="field"><label>Audit Period End <span class="req">★</span></label><input type="date" id="audit_end" oninput="autoSave()"></div>
+            <div class="field"><label>Insurance Payer(s) Audited</label><input type="text" id="audit_payers" placeholder="e.g., Medicare, BCBS" oninput="autoSave()"></div>
+            <div class="field"><label>Total Claims Audited</label><input type="number" id="audit_claims" placeholder="Number of claims" oninput="autoSave()"></div>
+            <div class="field"><label>Total Billed Amount $</label><input type="number" id="audit_billed" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+            <div class="field"><label>Total Collected Amount $</label><input type="number" id="audit_collected" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+            <div class="field span2"><label>Findings / Notes</label><textarea id="audit_notes" placeholder="Summary of audit findings..." oninput="autoSave()"></textarea></div>
+            <div class="field span2"><label>Recommendations</label><textarea id="audit_rec" placeholder="Recommended actions..." oninput="autoSave()"></textarea></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Signature</div>
+          <div class="grid2">
+            <div class="field"><label>Auditor / Signatory Name</label><input type="text" id="g_sig_name_audit" placeholder="Name" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_audit" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigAUDIT" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigAUDIT')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigAUDIT')">💾 Save</button></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-NASF0001A',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('AUDIT');showPage('form-NDA0001B',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('AUDIT')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== BILLING: NDA NDA0001B ===== -->
+      <div id="page-form-NDA0001B" class="page">
+        <div class="page-header">
+          <div class="form-number">Billing · NDA0001B</div>
+          <h2>Non-Disclosure Agreement — NDA0001B</h2>
+          <p>Confidentiality and non-disclosure agreement</p>
+        </div>
+        <p class="required-note"><span>★</span> Required fields</p>
+        <div class="card">
+          <div class="card-title">🔒 NDA Parties <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Disclosing Party (Client) Name <span class="req">★</span></label><input type="text" id="g_practice_name_nda" placeholder="Auto-fills from Contract Billing" oninput="autoSave()"></div>
+            <div class="field"><label>Receiving Party</label><input type="text" id="nda_receiving" value="International Medical &amp; Dental Council LLC" readonly style="color:var(--gray)"></div>
+            <div class="field"><label>Effective Date <span class="req">★</span></label><input type="date" id="g_eff_date_nda" oninput="autoSave()"></div>
+            <div class="field"><label>NDA Term (years)</label><input type="number" id="nda_term" placeholder="2" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📋 Confidential Information Scope</div>
+          <div class="field"><label>Description of Confidential Information <span class="req">★</span></label><textarea id="nda_scope" placeholder="Describe what information is covered by this NDA (patient records, billing data, financial information, etc.)..." oninput="autoSave()"></textarea></div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="nda_ack1" onchange="autoSave()" style="margin-top:2px;width:auto"> Receiving party shall maintain strict confidentiality of all disclosed information</label>
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="nda_ack2" onchange="autoSave()" style="margin-top:2px;width:auto"> Information shall not be disclosed to third parties without written consent</label>
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="nda_ack3" onchange="autoSave()" style="margin-top:2px;width:auto"> HIPAA compliance acknowledged for all PHI under this agreement</label>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Signatures</div>
+          <div class="grid2">
+            <div class="field"><label>Disclosing Party Signatory <span class="req">★</span></label><input type="text" id="g_sig_name_nda" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_nda" oninput="autoSave()"></div>
+            <div class="field"><label>Title</label><input type="text" id="g_provider_title_nda" placeholder="Auto-fills" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigNDA" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigNDA')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigNDA')">💾 Save</button></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-AUDIT',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('NDA0001B');showPage('form-REPORTS',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('NDA0001B')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== BILLING: REPORTS ===== -->
+      <div id="page-form-REPORTS" class="page">
+        <div class="page-header">
+          <div class="form-number">Billing · Reports</div>
+          <h2>Billing Report</h2>
+          <p>Report filled out and provided back to client — common fields auto-filled</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🏢 Client Information <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Practice / Business Name</label><input type="text" id="g_practice_name_rpt" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Report Period</label><input type="text" id="rpt_period" placeholder="e.g., January 2026" oninput="autoSave()"></div>
+            <div class="field"><label>Report Date</label><input type="date" id="rpt_date" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📊 Billing Summary</div>
+          <div class="grid3">
+            <div class="field"><label>Total Claims Submitted</label><input type="number" id="rpt_claims_sub" placeholder="0" oninput="autoSave()"></div>
+            <div class="field"><label>Total Claims Paid</label><input type="number" id="rpt_claims_paid" placeholder="0" oninput="autoSave()"></div>
+            <div class="field"><label>Total Claims Denied</label><input type="number" id="rpt_claims_denied" placeholder="0" oninput="autoSave()"></div>
+            <div class="field"><label>Total Billed Amount $</label><input type="number" id="rpt_billed" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+            <div class="field"><label>Total Collected Amount $</label><input type="number" id="rpt_collected" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+            <div class="field"><label>Collection Rate %</label><input type="number" id="rpt_rate" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="field"><label>Notes / Summary</label><textarea id="rpt_notes" placeholder="Summary notes for the client..." oninput="autoSave()"></textarea></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Prepared By</div>
+          <div class="grid2">
+            <div class="field"><label>Prepared By</label><input type="text" id="rpt_preparer" placeholder="IMDC staff name" oninput="autoSave()"></div>
+            <div class="field"><label>Date Prepared</label><input type="date" id="rpt_prep_date" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-NDA0001B',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('REPORTS');showPage('form-CARC0001',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('REPORTS')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== CREDENTIALING: CARC0001 ===== -->
+      <div id="page-form-CARC0001" class="page">
+        <div class="page-header">
+          <div class="form-number">Credentialing · CARC0001</div>
+          <h2>Credentialing Checklist — CARC0001</h2>
+          <p>Provider credentialing checklist — common fields auto-filled</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🏢 Provider / Practice Info <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Practice / Business Name <span class="req">★</span></label><input type="text" id="g_practice_name_cr" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Provider Name <span class="req">★</span></label><input type="text" id="g_provider_name_cr" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Individual NPI</label><input type="text" id="g_npi_cr" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>EIN</label><input type="text" id="g_ein_cr" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>State</label><input type="text" id="g_state_cr" placeholder="Auto-fills" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✅ Credentialing Checklist</div>
+          <p style="font-size:12px;color:var(--gray);margin-bottom:14px">Check each item as completed/submitted:</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_lic" onchange="autoSave()" style="width:auto"> State Medical / Professional License — verified and current</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_npi" onchange="autoSave()" style="width:auto"> NPI Number — individual and group confirmed</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_dea" onchange="autoSave()" style="width:auto"> DEA Certificate — current (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_board" onchange="autoSave()" style="width:auto"> Board Certification — verified (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_mal" onchange="autoSave()" style="width:auto"> Malpractice / Professional Liability Insurance — COI on file</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_gen" onchange="autoSave()" style="width:auto"> General Liability Insurance — COI on file (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_caqh" onchange="autoSave()" style="width:auto"> CAQH Profile — complete and attested</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_w9" onchange="autoSave()" style="width:auto"> W-9 Form — signed and dated</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_bank" onchange="autoSave()" style="width:auto"> Voided Check / Bank Letter — on file</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_resume" onchange="autoSave()" style="width:auto"> Provider Resume (MM/YYYY format) — submitted</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_hosp" onchange="autoSave()" style="width:auto"> Hospital Privileges Letter — on file (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_clia" onchange="autoSave()" style="width:auto"> CLIA Certification — on file (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_accred" onchange="autoSave()" style="width:auto"> Accreditation — on file (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_biz_reg" onchange="autoSave()" style="width:auto"> Business Registration (Articles of Incorporation) — on file (if applicable)</label>
+            <label style="display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer"><input type="checkbox" id="cr_irs" onchange="autoSave()" style="width:auto"> IRS Letter — on file</label>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📝 Checklist Notes</div>
+          <div class="field"><label>Notes / Missing Items</label><textarea id="cr_notes" placeholder="Note any pending items, expiration dates, or follow-ups required..." oninput="autoSave()"></textarea></div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Verified By</div>
+          <div class="grid2">
+            <div class="field"><label>Verified By (Name)</label><input type="text" id="g_sig_name_cr" placeholder="Staff name" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_cr" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-REPORTS',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('CARC0001');showPage('form-CARC0001A',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('CARC0001')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== CREDENTIALING: CARC0001A ===== -->
+      <div id="page-form-CARC0001A" class="page">
+        <div class="page-header">
+          <div class="form-number">Credentialing · CARC0001A</div>
+          <h2>Credentialing Agreement — CARC0001A</h2>
+          <p>Credentialing services agreement — common fields auto-filled</p>
+        </div>
+        <p class="required-note"><span>★</span> Required fields</p>
+        <div class="card">
+          <div class="card-title">🏢 Agreement Parties <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Client / Practice Name <span class="req">★</span></label><input type="text" id="g_practice_name_ca" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Provider Name</label><input type="text" id="g_provider_name_ca" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Effective Date <span class="req">★</span></label><input type="date" id="g_eff_date_ca" oninput="autoSave()"></div>
+            <div class="field"><label>Agreement Term</label><input type="text" id="ca_term" placeholder="e.g., 1 year" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📋 Credentialing Services</div>
+          <div class="field"><label>Services to Be Provided <span class="req">★</span></label><textarea id="ca_services" placeholder="List all credentialing services IMDC will perform (payer enrollment, license verification, CAQH management, etc.)..." oninput="autoSave()"></textarea></div>
+          <div class="grid2" style="margin-top:14px">
+            <div class="field"><label>Credentialing Fee $</label><input type="number" id="ca_fee" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+            <div class="field"><label>Renewal Fee $</label><input type="number" id="ca_renew_fee" placeholder="0.00" step="0.01" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Client Signature</div>
+          <div class="grid2">
+            <div class="field"><label>Signatory Name <span class="req">★</span></label><input type="text" id="g_sig_name_ca" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_ca" oninput="autoSave()"></div>
+            <div class="field"><label>Title</label><input type="text" id="g_provider_title_ca" placeholder="Auto-fills" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigCARC0001A" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigCARC0001A')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigCARC0001A')">💾 Save</button></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-CARC0001',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('CARC0001A');showPage('form-STD0001',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('CARC0001A')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== EXTRA FORMS: STD0001 ===== -->
+      <div id="page-form-STD0001" class="page">
+        <div class="page-header">
+          <div class="form-number">Extra Forms · STD0001</div>
+          <h2>Standard Form — STD0001</h2>
+          <p>Standard supplemental form — common fields auto-filled</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🏢 Client Information <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Practice / Business Name</label><input type="text" id="g_practice_name_s1" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Provider Name</label><input type="text" id="g_provider_name_s1" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_eff_date_s1" oninput="autoSave()"></div>
+            <div class="field"><label>Email</label><input type="email" id="g_email_s1" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Phone</label><input type="tel" id="g_phone_s1" placeholder="Auto-fills" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📝 STD0001 Details</div>
+          <div class="grid2">
+            <div class="field"><label>Form Reference #</label><input type="text" id="std1_ref" placeholder="Reference number" oninput="autoSave()"></div>
+            <div class="field"><label>Category</label><select id="std1_cat" onchange="autoSave()"><option value="">— Select —</option><option>Administrative</option><option>Clinical</option><option>Financial</option><option>Compliance</option><option>Other</option></select></div>
+            <div class="field span2"><label>Description / Purpose</label><textarea id="std1_desc" placeholder="Describe the purpose of this form..." oninput="autoSave()"></textarea></div>
+            <div class="field span2"><label>Additional Information</label><textarea id="std1_info" placeholder="Any additional information required..." oninput="autoSave()"></textarea></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Signature</div>
+          <div class="grid2">
+            <div class="field"><label>Signatory Name</label><input type="text" id="g_sig_name_s1" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_s1" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigSTD0001" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigSTD0001')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigSTD0001')">💾 Save</button></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-CARC0001A',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('STD0001');showPage('form-STD0002',null)">Save &amp; Continue →</button>
+          <button class="btn btn-secondary" onclick="printForm('STD0001')">🖨 Print</button>
+        </div>
+      </div>
+
+      <!-- ===== EXTRA FORMS: STD0002 ===== -->
+      <div id="page-form-STD0002" class="page">
+        <div class="page-header">
+          <div class="form-number">Extra Forms · STD0002</div>
+          <h2>Standard Form — STD0002</h2>
+          <p>Standard supplemental form — common fields auto-filled</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🏢 Client Information <span class="badge badge-green" style="font-size:10px;margin-left:8px">Auto-filled</span></div>
+          <div class="grid2">
+            <div class="field span2"><label>Practice / Business Name</label><input type="text" id="g_practice_name_s2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Provider Name</label><input type="text" id="g_provider_name_s2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_eff_date_s2" oninput="autoSave()"></div>
+            <div class="field"><label>Email</label><input type="email" id="g_email_s2" placeholder="Auto-fills" oninput="autoSave()"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">📝 STD0002 Details</div>
+          <div class="grid2">
+            <div class="field"><label>Form Reference #</label><input type="text" id="std2_ref" placeholder="Reference number" oninput="autoSave()"></div>
+            <div class="field"><label>Category</label><select id="std2_cat" onchange="autoSave()"><option value="">— Select —</option><option>Administrative</option><option>Clinical</option><option>Financial</option><option>Compliance</option><option>Other</option></select></div>
+            <div class="field span2"><label>Description / Purpose</label><textarea id="std2_desc" placeholder="Describe the purpose of this form..." oninput="autoSave()"></textarea></div>
+            <div class="field span2"><label>Additional Information</label><textarea id="std2_info" placeholder="Any additional information required..." oninput="autoSave()"></textarea></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">✍ Signature</div>
+          <div class="grid2">
+            <div class="field"><label>Signatory Name</label><input type="text" id="g_sig_name_s2" placeholder="Auto-fills" oninput="autoSave()"></div>
+            <div class="field"><label>Date</label><input type="date" id="g_sig_date_s2" oninput="autoSave()"></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="sig-pad"><canvas id="sigSTD0002" width="600" height="100"></canvas></div>
+            <div class="sig-actions"><button class="btn btn-sm btn-secondary" onclick="clearSig('sigSTD0002')">✕ Clear</button><button class="btn btn-sm btn-secondary" onclick="saveSig('sigSTD0002')">💾 Save</button></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('form-STD0001',null)">← Back</button>
+          <button class="btn btn-primary" onclick="markFormDone('STD0002');showPage('documents',null)">Continue to Documents →</button>
+        </div>
+      </div>
+
+      <!-- ===== DOCUMENT UPLOAD ===== -->
       <div id="page-documents" class="page">
         <div class="page-header">
           <div class="form-number">Document Upload</div>
-          <h2>Supporting Documents</h2>
-          <p>Upload required supporting documents. Each document needs a title and description.</p>
+          <h2>Required Documents</h2>
+          <p>Upload all 15 required supporting documents. Multiple upload methods available.</p>
         </div>
 
         <div class="card">
-          <div class="card-title"><span class="icon">📋</span> Recommended Documents</div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <span class="badge badge-gray">CPT Fee Schedule</span>
-            <span class="badge badge-gray">Provider License</span>
-            <span class="badge badge-gray">DEA Certificate</span>
-            <span class="badge badge-gray">Malpractice Insurance</span>
-            <span class="badge badge-gray">W-9 Form</span>
-            <span class="badge badge-gray">Voided Check</span>
-            <span class="badge badge-gray">NPI Confirmation</span>
-            <span class="badge badge-gray">State License(s)</span>
+          <div class="card-title">📋 Required Documents Status</div>
+          <div class="doc-required-list" id="docRequiredList">
+            <!-- Populated by JS -->
           </div>
         </div>
 
-        <!-- Upload Zone -->
         <div class="card">
-          <div class="card-title"><span class="icon">📂</span> Upload Document</div>
+          <div class="card-title">📂 Upload Document</div>
+          <div class="grid2" style="margin-bottom:14px">
+            <div class="field"><label>Select Document Type <span class="req">★</span></label>
+              <select id="docTypeSelect" onchange="updateDocUploadTarget()">
+                <option value="">— Select Document to Upload —</option>
+                <option value="0">1. IRS Letter</option>
+                <option value="1">2. Professional State License / Business License</option>
+                <option value="2">3. W9 Form</option>
+                <option value="3">4. Voided Check or Bank Letter</option>
+                <option value="4">5. Professional Liability Insurance Certificate (Malpractice COI)</option>
+                <option value="5">6. General Liability Insurance (if applicable)</option>
+                <option value="6">7. Hospital Privileges Letter (if applicable)</option>
+                <option value="7">8. Provider Resume in MM/YYYY format</option>
+                <option value="8">9. Board Certification (if applicable)</option>
+                <option value="9">10. DEA Certification (if applicable)</option>
+                <option value="10">11. CLIA Certification (if applicable)</option>
+                <option value="11">12. Accreditation (if applicable)</option>
+                <option value="12">13. Business Registration / Articles of Incorporation (if applicable)</option>
+                <option value="13">14. Bank Letter</option>
+                <option value="14">15. Voided Check (with name of business &amp; business address)</option>
+              </select>
+            </div>
+            <div class="field"><label>Document Notes</label><input type="text" id="docNotes" placeholder="Optional notes about this document..."></div>
+          </div>
 
-          <div class="doc-meta">
+          <!-- Upload Method Selector -->
+          <div class="upload-options">
+            <div class="upload-opt active" id="opt-dragdrop" onclick="selectUploadMethod('dragdrop')">
+              <span class="opt-icon">📥</span>
+              <div class="opt-label">Drag &amp; Drop Upload</div>
+              <div class="opt-sub">Upload from your device</div>
+            </div>
+            <div class="upload-opt" id="opt-link" onclick="selectUploadMethod('link')">
+              <span class="opt-icon">🔗</span>
+              <div class="opt-label">Upload via Link</div>
+              <div class="opt-sub">Share link to client</div>
+            </div>
+            <div class="upload-opt" id="opt-qr" onclick="selectUploadMethod('qr')">
+              <span class="opt-icon">⬛</span>
+              <div class="opt-label">Upload via QR Code</div>
+              <div class="opt-sub">Scan to upload from phone</div>
+            </div>
+          </div>
+
+          <!-- Drag & Drop Panel -->
+          <div class="upload-panel active" id="panel-dragdrop">
+            <div class="doc-upload-zone" id="uploadZone"
+              ondragover="event.preventDefault();this.classList.add('drag-over')"
+              ondragleave="this.classList.remove('drag-over')"
+              ondrop="handleDrop(event)">
+              <input type="file" id="docFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" onchange="handleFileSelect(this)">
+              <span class="icon">📥</span>
+              <p>Drop file here or click to browse</p>
+              <small>Supports: PDF, Word, Images (JPG, PNG, HEIC) — Max 20MB</small>
+            </div>
+            <div id="uploadFileName" style="margin-top:8px;font-size:12px;color:var(--green-light);display:none"></div>
+            <div class="btn-row" style="margin-top:12px">
+              <button class="btn btn-primary" onclick="addDocument()">＋ Add Document</button>
+            </div>
+          </div>
+
+          <!-- Link Panel -->
+          <div class="upload-panel" id="panel-link">
+            <div style="background:#fffbf0;border:1px solid #fde68a;border-radius:var(--r);padding:16px;margin-bottom:12px">
+              <p style="font-size:13px;color:#92400e;font-weight:500;margin-bottom:6px">📧 Send Upload Link to Client</p>
+              <p style="font-size:12px;color:#78350f">When you generate a link, the client will receive step-by-step instructions to upload each required document one at a time. They will be guided through each document (IRS Letter → License → W9 → etc.)</p>
+            </div>
             <div class="grid2">
-              <div class="field"><label>Document Title <span class="req">★</span></label><input type="text" id="docTitle" placeholder="? e.g., Provider Medical License"></div>
-              <div class="field"><label>Document Type</label>
-                <select id="docType">
-                  <option value="">— Select Category —</option>
-                  <option>License / Certificate</option>
-                  <option>Insurance Document</option>
-                  <option>Tax / Financial</option>
-                  <option>Contract / Agreement</option>
-                  <option>Identity Document</option>
-                  <option>Other</option>
-                </select>
+              <div class="field"><label>Client Email Address</label><input type="email" id="linkEmail" placeholder="client@practice.com"></div>
+              <div class="field"><label>Client Name</label><input type="text" id="linkClientName" placeholder="Dr. / Practice Name"></div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-primary" onclick="generateUploadLink()">🔗 Generate &amp; Copy Upload Link</button>
+              <button class="btn btn-secondary" onclick="sendUploadEmail()">📧 Send Link via Email</button>
+            </div>
+            <div id="uploadLinkBox" style="display:none;margin-top:12px">
+              <div class="field"><label>Shareable Upload Link (copy &amp; share)</label>
+                <input type="text" id="uploadLinkVal" readonly onclick="this.select()" style="cursor:pointer;background:#f0faf5;border-color:var(--green-light)">
               </div>
-              <div class="field span2"><label>Short Description</label><input type="text" id="docDesc" placeholder="Brief description of document contents"></div>
+              <p style="font-size:11px;color:var(--green-light);margin-top:4px">✓ Link copied to clipboard! Client will be guided through uploading each required document.</p>
             </div>
           </div>
 
-          <div class="doc-upload-zone" id="uploadZone">
-            <input type="file" id="docFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" onchange="handleFileSelect(this)">
-            <span class="icon">📥</span>
-            <p>Drop file here or click to browse</p>
-            <small>Supports: PDF, Word, Images (JPG, PNG, HEIC) — Max 20MB</small>
-          </div>
-
-          <div class="doc-meta-actions">
-            <button class="btn btn-primary" onclick="addDocument()">＋ Add Document</button>
-            <button class="btn btn-secondary" id="previewBtn" onclick="previewDoc()" style="display:none">👁 Preview</button>
-            <button class="btn btn-danger" id="removeBtn" onclick="removeSelectedDoc()" style="display:none">🗑 Remove</button>
-          </div>
-        </div>
-
-        <!-- Remote Upload / QR -->
-        <div class="card">
-          <div class="card-title"><span class="icon">📱</span> Upload from Another Device</div>
-          <p style="font-size:13px;color:var(--gray);margin-bottom:12px">Need to upload from your phone or another device? Generate a shareable link or QR code.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-secondary" onclick="generateUploadLink()">🔗 Generate Upload Link</button>
-            <button class="btn btn-secondary" onclick="generateQR()">⬛ Generate QR Code</button>
-          </div>
-          <div id="uploadLinkBox" style="display:none;margin-top:12px">
-            <div class="field"><label>Shareable Upload Link</label><input type="text" id="uploadLinkVal" readonly onclick="this.select()" style="cursor:pointer"></div>
-          </div>
-          <div id="qrBox" style="display:none;margin-top:12px">
-            <div class="qr-section">
-              <p>Scan this QR code from your mobile device to upload documents</p>
-              <div id="qrDisplay" class="qr-placeholder">QR Code</div>
-              <p style="font-size:11px;color:#aaa;margin-top:6px">QR valid for this session</p>
+          <!-- QR Panel -->
+          <div class="upload-panel" id="panel-qr">
+            <div style="background:#f0f0ff;border:1px solid #c4b5fd;border-radius:var(--r);padding:16px;margin-bottom:12px">
+              <p style="font-size:13px;color:#4c1d95;font-weight:500;margin-bottom:6px">📱 QR Code Upload</p>
+              <p style="font-size:12px;color:#5b21b6">Have the client scan this QR code with their phone camera to open the upload portal. They'll be guided step-by-step to upload each required document.</p>
+            </div>
+            <button class="btn btn-primary" onclick="generateQR()">⬛ Generate QR Code</button>
+            <div id="qrContainer" style="display:none;margin-top:16px;text-align:center">
+              <canvas id="qrCanvas" width="160" height="160" style="border:1px solid #eee;border-radius:8px;padding:8px;background:#fff"></canvas>
+              <p style="font-size:11px;color:var(--gray);margin-top:8px">Scan with phone camera to upload documents</p>
             </div>
           </div>
         </div>
 
-        <!-- Document List -->
-        <div class="card">
-          <div class="card-title"><span class="icon">📂</span> Uploaded Documents <span id="docCount" class="badge badge-gray" style="font-size:11px;margin-left:4px">0</span></div>
-          <div id="docList"><p style="color:var(--gray);font-size:13px">No documents uploaded yet.</p></div>
+        <!-- Uploaded Documents List -->
+        <div class="card" id="uploadedDocsCard" style="display:none">
+          <div class="card-title">✅ Uploaded Documents</div>
+          <div class="doc-list" id="docList"></div>
         </div>
 
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="showPage('review',null)">Continue to Review →</button>
+          <button class="btn btn-secondary" onclick="showPage('form-STD0002',null)">← Back</button>
+          <button class="btn btn-primary" onclick="showPage('review',null)">Proceed to Review →</button>
         </div>
       </div>
 
-      <!-- REVIEW PAGE -->
+      <!-- ===== REVIEW ===== -->
       <div id="page-review" class="page">
         <div class="page-header">
-          <div class="form-number">Step 3 · Review</div>
+          <div class="form-number">Step 3 — Review</div>
           <h2>Review &amp; Verify</h2>
-          <p>Review all entered information before final submission. Click any section to edit.</p>
+          <p>Review all entered data before submission. Fields marked empty will be highlighted.</p>
         </div>
-
-        <div class="step-flow">
-          <div class="step done"><span class="sn">✓</span>Forms Filled</div>
-          <div class="step done"><span class="sn">✓</span>Docs Uploaded</div>
-          <div class="step active"><span class="sn">③</span>Review</div>
-          <div class="step"><span class="sn">④</span>Submit</div>
-          <div class="step"><span class="sn">⑤</span>Client</div>
-          <div class="step"><span class="sn">⑥</span>Output</div>
+        <div id="reviewContent">
+          <!-- Populated by JS -->
         </div>
-
-        <div id="reviewContent"></div>
-
         <div class="btn-row">
-          <button class="btn btn-secondary" onclick="showPage('documents',null)">← Edit Documents</button>
-          <button class="btn btn-primary" onclick="buildReview();showPage('review',null)">🔄 Refresh Review</button>
-          <button class="btn btn-success" onclick="showPage('submit',null)">Proceed to Submission →</button>
+          <button class="btn btn-secondary" onclick="showPage('documents',null)">← Back</button>
+          <button class="btn btn-primary" onclick="checkAndProceedToSubmit()">Proceed to Submit →</button>
         </div>
       </div>
 
-      <!-- SUBMIT PAGE -->
+      <!-- ===== SUBMIT ===== -->
       <div id="page-submit" class="page">
         <div class="page-header">
-          <div class="form-number">Step 4–5 · Submit &amp; Send</div>
-          <h2>Submit &amp; Send to Client</h2>
-          <p>Finalize submission and send client their copy for review, amendments, and approval.</p>
+          <div class="form-number">Step 4 — Submit</div>
+          <h2>Submit &amp; Send</h2>
+          <p>Finalize and submit the intake package</p>
         </div>
-
-        <div class="step-flow">
-          <div class="step done"><span class="sn">✓</span>Filled</div>
-          <div class="step done"><span class="sn">✓</span>Docs</div>
-          <div class="step done"><span class="sn">✓</span>Reviewed</div>
-          <div class="step active"><span class="sn">④</span>Submit</div>
-          <div class="step"><span class="sn">⑤</span>Client</div>
-          <div class="step"><span class="sn">⑥</span>Output</div>
-        </div>
-
         <div class="card">
-          <div class="card-title"><span class="icon">✅</span> Final Submission</div>
-          <p style="font-size:13px;color:var(--gray);margin-bottom:16px">By clicking "Submit Final Package" you confirm all information is accurate and complete.</p>
-          <div style="background:#f9f9f9;border:1px solid #eee;border-radius:var(--r);padding:14px;margin-bottom:16px;font-size:13px">
-            <strong style="color:var(--gold)">Submission includes:</strong>
-            <ul style="margin-top:8px;padding-left:18px;color:var(--gray);line-height:2">
-              <li>All completed intake forms (A, B, C, D categories)</li>
-              <li id="submitDocCount">0 uploaded supporting documents</li>
-              <li>Electronic signatures where applicable</li>
-              <li>CPT fee schedule entries</li>
-            </ul>
-          </div>
-          <button class="btn btn-success" onclick="finalSubmit()" style="width:100%;justify-content:center;padding:14px;font-size:15px">✅ Submit Final Package</button>
+          <div class="card-title">📋 Submission Summary</div>
+          <div id="submitSummary"></div>
         </div>
-
-        <div class="card" id="sendClientCard" style="display:none">
-          <div class="card-title"><span class="icon">📧</span> Send Copy to Client</div>
-          <p style="font-size:13px;color:var(--gray);margin-bottom:14px">Send a review copy to the client for their review, any amendment requests, and approval signature.</p>
+        <div class="card">
+          <div class="card-title">📧 Send for Client Approval</div>
           <div class="grid2">
-            <div class="field span2"><label>Client Email Address <span class="req">★</span></label><input type="email" id="clientEmail" placeholder="client@practice.com"></div>
-            <div class="field span2"><label>Email Subject</label><input type="text" id="clientSubject" value="IMDC Intake Forms — Please Review &amp; Approve"></div>
-            <div class="field span2"><label>Message to Client</label><textarea id="clientMsg" style="min-height:80px">Dear Client,
-
-Please review the attached intake package. You may request amendments or provide your approval and signature.
-
-Best regards,
-IMDC Team</textarea></div>
+            <div class="field"><label>Client Email</label><input type="email" id="sub_email" placeholder="client@practice.com"></div>
+            <div class="field"><label>CC Email</label><input type="email" id="sub_cc" placeholder="manager@imdc.com"></div>
           </div>
-          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-            <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer"><input type="checkbox" checked id="incForms" style="width:auto"> Include form data</label>
-            <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer"><input type="checkbox" checked id="incDocs" style="width:auto"> Include uploaded documents</label>
-            <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer"><input type="checkbox" checked id="incAmend" style="width:auto"> Allow amendment requests</label>
+          <div class="field" style="margin-top:12px"><label>Message to Client</label><textarea id="sub_msg" placeholder="Dear [Client],&#10;Please review the attached intake documents and provide your approval..." style="min-height:80px"></textarea></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="showPage('review',null)">← Back</button>
+          <button class="btn btn-success" onclick="completeSubmission()">✅ Submit Intake Package</button>
+        </div>
+        <div id="submitSuccess" style="display:none">
+          <div class="success-box">
+            <span class="sicon">✅</span>
+            <h3>Intake Package Submitted Successfully!</h3>
+            <p>All forms have been completed and the package is ready. Proceed to Final Output to print all contract forms.</p>
           </div>
-          <div class="btn-row">
-            <button class="btn btn-primary" onclick="sendToClient()">📧 Send to Client</button>
-            <button class="btn btn-secondary" onclick="generateClientLink()">🔗 Generate Review Link</button>
-          </div>
-          <div id="clientLinkBox" style="display:none;margin-top:12px">
-            <div class="field"><label>Client Review Link</label><input type="text" id="clientLinkVal" readonly onclick="this.select()" style="cursor:pointer"></div>
+          <div class="btn-row" style="justify-content:center">
+            <button class="btn btn-primary" onclick="showPage('output',null)">🖨 Go to Final Output →</button>
           </div>
         </div>
       </div>
 
-      <!-- FINAL OUTPUT -->
+      <!-- ===== FINAL OUTPUT / PRINT ===== -->
       <div id="page-output" class="page">
         <div class="page-header">
-          <div class="form-number">Step 6 · Final Output</div>
-          <h2>Final Forms Output</h2>
-          <p>Download, print, or share the completed forms package — filled with all entered details.</p>
+          <div class="form-number">Step 5 — Final Output</div>
+          <h2>Final Output &amp; Print</h2>
+          <p>All contract forms are shown below in print-ready format using IMDC company templates. Click "Print All Forms" to print.</p>
         </div>
 
-        <div class="step-flow">
-          <div class="step done"><span class="sn">✓</span>Filled</div>
-          <div class="step done"><span class="sn">✓</span>Docs</div>
-          <div class="step done"><span class="sn">✓</span>Reviewed</div>
-          <div class="step done"><span class="sn">✓</span>Submitted</div>
-          <div class="step done"><span class="sn">✓</span>Client</div>
-          <div class="step active"><span class="sn">⑥</span>Output</div>
+        <div class="btn-row non-print" style="margin-bottom:20px">
+          <button class="btn btn-primary" onclick="window.print()" style="font-size:15px;padding:12px 24px">🖨 Print All Contract Forms</button>
+          <button class="btn btn-secondary" onclick="refreshOutput()">🔄 Refresh Output</button>
         </div>
 
-        <div class="card">
-          <div class="card-title"><span class="icon">📤</span> Output Options</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px">
-            <button class="btn btn-primary" onclick="printAllForms()">🖨 Print All Forms</button>
-            <button class="btn btn-secondary" onclick="downloadTextOutput()">⬇ Download as Text</button>
-            <button class="btn btn-secondary" onclick="emailFinalPackage()">✉ Email Final Package</button>
-            <button class="btn btn-secondary" onclick="generateFinalLink()">🔗 Shareable Link</button>
+        <!-- NASF0001 OUTPUT -->
+        <div class="print-form-preview" id="out-NASF0001">
+          <div class="pf-header">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <svg width="100" height="32" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
+                <circle cx="24" cy="46" r="2" fill="#cc0000"/>
+                <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
+              </svg>
+              <div style="text-align:right;font-size:11px;color:#666">
+                <div style="font-weight:600;color:#cc0000">Form NASF0001</div>
+                <div>International Medical &amp; Dental Council LLC</div>
+              </div>
+            </div>
+            <h2>Contract Billing Agreement — NASF0001</h2>
+            <p>International Medical &amp; Dental Council LLC — Revenue Cycle Management Services</p>
+          </div>
+          <table class="print-table" id="out-NASF0001-table"></table>
+          <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Client Signature</div>
+              <div style="margin-top:20px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Print Name</div>
+              <div style="margin-top:16px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Title</div>
+              <div style="margin-top:16px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Date</div>
+            </div>
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">IMDC Representative Signature</div>
+              <div style="margin-top:20px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Print Name</div>
+              <div style="margin-top:16px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Title</div>
+              <div style="margin-top:16px;border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Date</div>
+            </div>
           </div>
         </div>
 
-        <!-- Rendered Forms -->
-        <div id="finalFormsOutput"></div>
-      </div>
+        <!-- NASF0001A OUTPUT -->
+        <div class="print-form-preview" id="out-NASF0001A">
+          <div class="pf-header">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <svg width="100" height="32" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
+                <circle cx="24" cy="46" r="2" fill="#cc0000"/>
+                <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
+              </svg>
+              <div style="text-align:right;font-size:11px;color:#666">
+                <div style="font-weight:600;color:#cc0000">Form NASF0001A</div>
+                <div>International Medical &amp; Dental Council LLC</div>
+              </div>
+            </div>
+            <h2>Contract Addendum — NASF0001A</h2>
+            <p>Addendum to Contract Billing Agreement NASF0001</p>
+          </div>
+          <table class="print-table" id="out-NASF0001A-table"></table>
+          <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Client Signature &amp; Date</div>
+            </div>
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">IMDC Representative &amp; Date</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AUDIT OUTPUT -->
+        <div class="print-form-preview" id="out-AUDIT">
+          <div class="pf-header">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <svg width="100" height="32" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
+                <circle cx="24" cy="46" r="2" fill="#cc0000"/>
+                <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
+              </svg>
+              <div style="text-align:right;font-size:11px;color:#666">
+                <div style="font-weight:600;color:#cc0000">Audit NASF0001</div>
+                <div>International Medical &amp; Dental Council LLC</div>
+              </div>
+            </div>
+            <h2>Billing Audit Form — NASF0001</h2>
+            <p>International Medical &amp; Dental Council LLC — Billing Audit Report</p>
+          </div>
+          <table class="print-table" id="out-AUDIT-table"></table>
+        </div>
+
+        <!-- NDA OUTPUT -->
+        <div class="print-form-preview" id="out-NDA0001B">
+          <div class="pf-header">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <svg width="100" height="32" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
+                <circle cx="24" cy="46" r="2" fill="#cc0000"/>
+                <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
+              </svg>
+              <div style="text-align:right;font-size:11px;color:#666">
+                <div style="font-weight:600;color:#cc0000">NDA0001B</div>
+                <div>International Medical &amp; Dental Council LLC</div>
+              </div>
+            </div>
+            <h2>Non-Disclosure Agreement — NDA0001B</h2>
+            <p>Confidentiality Agreement between Client and IMDC LLC</p>
+          </div>
+          <table class="print-table" id="out-NDA0001B-table"></table>
+          <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Disclosing Party Signature &amp; Date</div>
+            </div>
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Receiving Party (IMDC) Signature &amp; Date</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARC0001A OUTPUT -->
+        <div class="print-form-preview" id="out-CARC0001A">
+          <div class="pf-header">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <svg width="100" height="32" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 22 Q8 22 8 34 Q8 46 20 46" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="46" r="5" stroke="#cc0000" stroke-width="2.5" fill="none"/>
+                <circle cx="24" cy="46" r="2" fill="#cc0000"/>
+                <path d="M29 46 Q42 46 42 34 Q42 22 54 22" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <polyline points="54,34 62,34 67,22 72,46 77,28 82,34 90,34" stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="38" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#111111" letter-spacing="1">IMDC</text>
+              </svg>
+              <div style="text-align:right;font-size:11px;color:#666">
+                <div style="font-weight:600;color:#cc0000">CARC0001A</div>
+                <div>International Medical &amp; Dental Council LLC</div>
+              </div>
+            </div>
+            <h2>Credentialing Agreement — CARC0001A</h2>
+            <p>Credentialing Services Agreement — International Medical &amp; Dental Council LLC</p>
+          </div>
+          <table class="print-table" id="out-CARC0001A-table"></table>
+          <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">Client Signature &amp; Date</div>
+            </div>
+            <div>
+              <div style="border-top:1px solid #333;padding-top:6px;font-size:11px;color:#666">IMDC Representative &amp; Date</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end output page -->
 
     </main>
   </div>
 </div>
 
-<!-- Preview Modal -->
-<div class="modal-bg" id="previewModal">
+<!-- ===== EMAIL MODAL ===== -->
+<div class="modal-bg" id="emailModal">
   <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('previewModal').classList.remove('open')">✕</button>
-    <h3>Document Preview</h3>
-    <div id="previewContent" style="margin-top:12px;text-align:center"></div>
+    <button class="modal-close" onclick="closeModal('emailModal')">×</button>
+    <h3>📧 Send Upload Link</h3>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:16px">The client will receive a guided email with step-by-step instructions for uploading each required document.</p>
+    <div class="field"><label>Client Email</label><input type="email" id="modalEmail" placeholder="client@practice.com"></div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-primary" onclick="confirmSendEmail()">📧 Send Email</button>
+      <button class="btn btn-secondary" onclick="closeModal('emailModal')">Cancel</button>
+    </div>
   </div>
 </div>
 
-<!-- Alert Toast -->
-<div id="toast" style="position:fixed;bottom:24px;right:24px;background:#111;border:1px solid var(--gold);border-radius:8px;padding:12px 18px;font-size:13px;color:#fff;z-index:9000;display:none;box-shadow:var(--shadow)"></div>
-
 <script>
-// ===== SIDEBAR TOGGLE =====
-function toggleSidebar(){
-  const sb=document.getElementById('app').querySelector('.sidebar');
-  const btn=document.getElementById('hamburgerBtn');
-  const overlay=document.getElementById('sidebarOverlay');
-  sb.classList.toggle('open');
-  btn.classList.toggle('open');
-  overlay.classList.toggle('open');
-}
-function closeSidebar(){
-  const sb=document.getElementById('app').querySelector('.sidebar');
-  const btn=document.getElementById('hamburgerBtn');
-  const overlay=document.getElementById('sidebarOverlay');
-  sb.classList.remove('open');
-  btn.classList.remove('open');
-  overlay.classList.remove('open');
-}
-
 // ===== AUTH =====
-const CREDS = {admin:'imdc2024', staff:'imdc2024'};
-function doLogin(){
-  const u=document.getElementById('loginUser').value.trim();
-  const p=document.getElementById('loginPass').value.trim();
-  if(CREDS[u]===p){
-    document.getElementById('loginScreen').style.display='none';
-    document.getElementById('app').style.display='flex';
-    loadData();buildReview();updateDashboard();renderFinalForms();
-    initSigPads();initCPTRows();
-  }else{
-    document.getElementById('loginErr').style.display='block';
+const USERS = { admin: 'imdc2024', staff: 'imdc2024', user: 'imdc2024' };
+
+function doLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value.trim();
+  if (!u || !p) { showErr('Please enter username and password.'); return; }
+  if (USERS[u] && USERS[u] === p) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    initSigPads();
+    loadFromStorage();
+    populateDocRequiredList();
+    updateDashboard();
+    refreshOutput();
+  } else {
+    showErr('Invalid username or password. Please try again.');
   }
 }
-document.addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
-function doLogout(){document.getElementById('loginScreen').style.display='flex';document.getElementById('app').style.display='none';}
+function showErr(msg) {
+  const el = document.getElementById('loginErr');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+function doLogout() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginErr').style.display = 'none';
+}
 
 // ===== NAVIGATION =====
-function showPage(id, el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+id)?.classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  if(el)el.classList.add('active');
-  else{
-    document.querySelectorAll('.nav-item').forEach(n=>{
-      if(n.getAttribute('onclick')?.includes(`'${id}'`))n.classList.add('active');
-    });
+function showPage(id, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
+  if (navEl) navEl.classList.add('active');
+  else {
+    const navs = document.querySelectorAll('.nav-item');
+    navs.forEach(n => { if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + id + "'")) n.classList.add('active'); });
   }
-  if(id==='review')buildReview();
-  if(id==='output')renderFinalForms();
-  if(id==='submit')document.getElementById('submitDocCount').textContent=docs.length+' uploaded supporting documents';
-  updateDashboard();
+  if (id === 'review') buildReview();
+  if (id === 'submit') buildSubmitSummary();
+  if (id === 'output') refreshOutput();
   closeSidebar();
+  window.scrollTo(0, 0);
+}
+function toggleSidebar() {
+  const s = document.getElementById('mainSidebar');
+  const o = document.getElementById('sidebarOverlay');
+  const h = document.getElementById('hamburgerBtn');
+  s.classList.toggle('open');
+  o.classList.toggle('open');
+  h.classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('mainSidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
 }
 
-// ===== AUTOSAVE =====
-let saveTimer;
-function autoSave(){
-  clearTimeout(saveTimer);
-  document.getElementById('saveStatus').innerHTML='⏳ Saving…';
-  saveTimer=setTimeout(()=>{
-    saveData();
-    document.getElementById('saveStatus').innerHTML='✓ All data saved';
-  },800);
-}
+// ===== AUTO-FILL (Global fields propagate to all forms) =====
+const GLOBAL_FIELD_MAP = {
+  'g_practice_name': ['g_practice_name_2','g_practice_name_3','g_practice_name_nda','g_practice_name_cr','g_practice_name_ca','g_practice_name_s1','g_practice_name_s2','g_practice_name_rpt'],
+  'g_address': ['g_address_2','g_address_3'],
+  'g_email': ['g_email_2','g_email_3','g_email_s1','g_email_s2'],
+  'g_phone': ['g_phone_2','g_phone_3','g_phone_s1'],
+  'g_ein': ['g_ein_3','g_ein_cr'],
+  'g_provider_name': ['g_provider_name_cr','g_provider_name_ca','g_provider_name_s1','g_provider_name_s2'],
+  'g_provider_title': ['g_provider_title_nda','g_provider_title_ca'],
+  'g_npi': ['g_npi_cr'],
+  'g_state': ['g_state_cr'],
+  'g_eff_date': ['g_eff_date_nda','g_eff_date_ca','g_eff_date_s1','g_eff_date_s2'],
+  'g_sig_name': ['g_sig_name_2','g_sig_name_nda','g_sig_name_ca','g_sig_name_s1','g_sig_name_s2'],
+  'g_sig_date': ['g_sig_date_2','g_sig_date_nda','g_sig_date_ca','g_sig_date_s1','g_sig_date_s2']
+};
 
-function saveData(){
-  const fields={};
-  document.querySelectorAll('input[id],select[id],textarea[id]').forEach(el=>{
-    if(el.type==='checkbox')fields[el.id]=el.checked;
-    else fields[el.id]=el.value;
+function autoFill(fieldId) {
+  const src = document.getElementById(fieldId);
+  if (!src) return;
+  const val = src.value || (src.tagName === 'SELECT' ? src.options[src.selectedIndex]?.text : '');
+  const targets = GLOBAL_FIELD_MAP[fieldId];
+  if (!targets) return;
+  targets.forEach(tId => {
+    const t = document.getElementById(tId);
+    if (!t) return;
+    if (t.tagName === 'SELECT') {
+      for (let i = 0; i < t.options.length; i++) {
+        if (t.options[i].value === src.value || t.options[i].text === val) { t.selectedIndex = i; break; }
+      }
+    } else {
+      t.value = val;
+    }
   });
-  localStorage.setItem('imdc_fields',JSON.stringify(fields));
-  localStorage.setItem('imdc_docs',JSON.stringify(docs));
-  localStorage.setItem('imdc_done',JSON.stringify(doneForms));
-  localStorage.setItem('imdc_cpt',JSON.stringify(cptData));
-}
-
-function loadData(){
-  try{
-    const f=JSON.parse(localStorage.getItem('imdc_fields')||'{}');
-    Object.entries(f).forEach(([id,val])=>{
-      const el=document.getElementById(id);
-      if(!el)return;
-      if(el.type==='checkbox')el.checked=val;
-      else el.value=val;
-    });
-    docs=JSON.parse(localStorage.getItem('imdc_docs')||'[]');
-    doneForms=new Set(JSON.parse(localStorage.getItem('imdc_done')||'[]'));
-    cptData=JSON.parse(localStorage.getItem('imdc_cpt')||'[]');
-    renderDocList();
-    if(cptData.length)renderCPTRows();
-  }catch(e){}
-}
-
-// ===== DONE FORMS TRACKING =====
-let doneForms=new Set();
-function markFormDone(key){
-  doneForms.add(key);
-  saveData();
-  updateDashboard();
-  toast('Form saved ✓');
-}
-
-function updateDashboard(){
-  const n=doneForms.size;
-  const pct=Math.round(n/9*100);
-  document.getElementById('dFormsComplete').textContent=n;
-  document.getElementById('dDocsUploaded').textContent=docs.length;
-  document.getElementById('dPctComplete').textContent=pct+'%';
-  document.getElementById('dashProgress').style.width=pct+'%';
-}
-
-// ===== DOCUMENTS =====
-let docs=[];
-let selectedFile=null;
-function handleFileSelect(input){
-  selectedFile=input.files[0];
-  if(selectedFile){
-    document.getElementById('previewBtn').style.display='inline-flex';
-    document.getElementById('removeBtn').style.display='inline-flex';
-    document.getElementById('uploadZone').style.borderColor='var(--gold)';
-    document.querySelector('#uploadZone p').textContent='📎 '+selectedFile.name;
+  // Also build city-state-zip composite
+  if (['g_city','g_state','g_zip'].includes(fieldId)) {
+    const city = document.getElementById('g_city')?.value || '';
+    const state = document.getElementById('g_state')?.value || '';
+    const zip = document.getElementById('g_zip')?.value || '';
+    const csz = [city, state, zip].filter(Boolean).join(', ');
+    ['g_csz_2','g_csz_3'].forEach(id => { const el = document.getElementById(id); if (el) el.value = csz; });
   }
 }
-function addDocument(){
-  const title=document.getElementById('docTitle').value.trim();
-  const desc=document.getElementById('docDesc').value.trim();
-  const type=document.getElementById('docType').value;
-  if(!title){toast('Please enter a document title','red');return;}
-  if(!selectedFile){toast('Please select a file first','red');return;}
-  const reader=new FileReader();
-  reader.onload=e=>{
-    docs.push({title,desc,type,name:selectedFile.name,size:selectedFile.size,data:e.target.result,mime:selectedFile.type,date:new Date().toLocaleDateString()});
-    renderDocList();
-    saveData();
-    updateDashboard();
-    document.getElementById('docTitle').value='';
-    document.getElementById('docDesc').value='';
-    document.getElementById('docType').value='';
-    document.getElementById('docFile').value='';
-    selectedFile=null;
-    document.getElementById('previewBtn').style.display='none';
-    document.getElementById('removeBtn').style.display='none';
-    document.getElementById('uploadZone').style.borderColor='';
-    document.querySelector('#uploadZone p').textContent='Drop file here or click to browse';
-    toast('Document added ✓');
-  };
-  reader.readAsDataURL(selectedFile);
+
+// ===== FORM COMPLETION =====
+const formsDone = {};
+function markFormDone(id) {
+  formsDone[id] = true;
+  const badge = document.getElementById('badge-' + id);
+  if (badge) { badge.textContent = '✓'; badge.className = 'num done'; }
+  updateDashboard();
+  autoSave();
 }
-function removeSelectedDoc(){selectedFile=null;document.getElementById('docFile').value='';document.getElementById('previewBtn').style.display='none';document.getElementById('removeBtn').style.display='none';document.getElementById('uploadZone').style.borderColor='';document.querySelector('#uploadZone p').textContent='Drop file here or click to browse';}
-function removeDoc(i){docs.splice(i,1);renderDocList();saveData();updateDashboard();}
-function renderDocList(){
-  const list=document.getElementById('docList');
-  document.getElementById('docCount').textContent=docs.length;
-  if(!docs.length){list.innerHTML='<p style="color:var(--gray);font-size:13px">No documents uploaded yet.</p>';return;}
-  list.innerHTML=docs.map((d,i)=>`
+
+// ===== DASHBOARD =====
+function updateDashboard() {
+  const total = 9; // total forms
+  const done = Object.keys(formsDone).length;
+  const docs = uploadedDocs.length;
+  const pct = Math.round(((done / total) * 60 + (Math.min(docs, 15) / 15) * 40));
+  document.getElementById('dFormsComplete').textContent = done;
+  document.getElementById('dDocsUploaded').textContent = docs;
+  document.getElementById('dPctComplete').textContent = pct + '%';
+  document.getElementById('dashProgress').style.width = pct + '%';
+}
+
+// ===== DOCUMENT UPLOAD =====
+const REQUIRED_DOCS = [
+  'IRS Letter',
+  'Professional State License or Business License',
+  'W9 Form',
+  'Voided Check or Bank Letter',
+  'Professional Liability Insurance Certificate (Malpractice COI)',
+  'General Liability Insurance (if applicable)',
+  'Hospital Privileges Letter (if applicable)',
+  'Provider Resume in MM/YYYY format',
+  'Board Certification (if applicable)',
+  'DEA Certification (if applicable)',
+  'CLIA Certification (if applicable)',
+  'Accreditation (if applicable)',
+  'Business Registration (Article of Incorporation) if applicable',
+  'Bank Letter',
+  'Voided Check (with name of business & business address)'
+];
+
+let uploadedDocs = [];
+let selectedFile = null;
+
+function populateDocRequiredList() {
+  const list = document.getElementById('docRequiredList');
+  if (!list) return;
+  list.innerHTML = REQUIRED_DOCS.map((name, i) => {
+    const uploaded = uploadedDocs.find(d => d.typeIdx == i);
+    return `<div class="doc-req-item ${uploaded ? 'uploaded' : ''}" id="req-item-${i}">
+      <span class="req-num">${i+1}</span>
+      <span class="req-name">${name}</span>
+      <span class="req-status">${uploaded ? '✅' : '○'}</span>
+    </div>`;
+  }).join('');
+}
+
+function updateDocUploadTarget() { /* selection only */ }
+
+function selectUploadMethod(method) {
+  document.querySelectorAll('.upload-opt').forEach(o => o.classList.remove('active'));
+  document.querySelectorAll('.upload-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('opt-' + method).classList.add('active');
+  document.getElementById('panel-' + method).classList.add('active');
+}
+
+function handleFileSelect(input) {
+  if (input.files && input.files[0]) {
+    selectedFile = input.files[0];
+    const fn = document.getElementById('uploadFileName');
+    fn.textContent = '📎 ' + selectedFile.name;
+    fn.style.display = 'block';
+  }
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('uploadZone').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) {
+    selectedFile = file;
+    const fn = document.getElementById('uploadFileName');
+    fn.textContent = '📎 ' + file.name;
+    fn.style.display = 'block';
+  }
+}
+
+function addDocument() {
+  const typeIdx = document.getElementById('docTypeSelect').value;
+  if (typeIdx === '') { alert('Please select a document type first.'); return; }
+  const notes = document.getElementById('docNotes').value;
+  const fileName = selectedFile ? selectedFile.name : ('Document_' + REQUIRED_DOCS[parseInt(typeIdx)].replace(/[^a-z0-9]/gi,'_').substring(0,20) + '.pdf');
+  const doc = { typeIdx: parseInt(typeIdx), name: REQUIRED_DOCS[parseInt(typeIdx)], fileName, notes, uploaded: new Date().toLocaleDateString() };
+  // Replace if already uploaded
+  const existingIdx = uploadedDocs.findIndex(d => d.typeIdx == typeIdx);
+  if (existingIdx >= 0) uploadedDocs[existingIdx] = doc;
+  else uploadedDocs.push(doc);
+  renderDocList();
+  populateDocRequiredList();
+  updateDashboard();
+  autoSave();
+  document.getElementById('docTypeSelect').value = '';
+  document.getElementById('docNotes').value = '';
+  selectedFile = null;
+  document.getElementById('uploadFileName').style.display = 'none';
+}
+
+function renderDocList() {
+  const list = document.getElementById('docList');
+  const card = document.getElementById('uploadedDocsCard');
+  if (!list) return;
+  if (uploadedDocs.length === 0) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+  list.innerHTML = uploadedDocs.map((d, i) => `
     <div class="doc-item">
-      <span class="doc-icon">${d.mime?.includes('pdf')?'📄':d.mime?.includes('image')?'🖼':'📎'}</span>
+      <span class="doc-icon">📄</span>
       <div class="doc-info">
-        <strong>${d.title}</strong>
-        <small>${d.name} · ${(d.size/1024).toFixed(0)}KB · ${d.date}</small>
-        ${d.desc?`<div class="doc-desc">${d.desc}</div>`:''}
-        ${d.type?`<span class="badge badge-gray" style="margin-top:3px">${d.type}</span>`:''}
+        <strong>${d.name}</strong>
+        <small>${d.fileName} · Uploaded ${d.uploaded}${d.notes ? ' · ' + d.notes : ''}</small>
       </div>
       <div class="doc-actions">
-        <button class="btn btn-sm btn-secondary" onclick="previewDocItem(${i})">👁 Preview</button>
-        <button class="btn btn-sm btn-danger" onclick="removeDoc(${i})">🗑 Remove</button>
+        <button class="btn btn-sm btn-danger" onclick="removeDoc(${i})">🗑</button>
       </div>
     </div>`).join('');
 }
-function previewDocItem(i){
-  const d=docs[i];
-  const m=document.getElementById('previewModal');
-  const c=document.getElementById('previewContent');
-  if(d.mime?.includes('image'))c.innerHTML=`<img src="${d.data}" style="max-width:100%;border-radius:4px">`;
-  else if(d.mime?.includes('pdf'))c.innerHTML=`<iframe src="${d.data}" style="width:100%;height:400px;border:none;border-radius:4px"></iframe>`;
-  else c.innerHTML=`<p style="color:var(--gray)">${d.name} — Preview not available for this file type.</p>`;
-  m.classList.add('open');
-}
-function previewDoc(){if(selectedFile){const u=URL.createObjectURL(selectedFile);window.open(u,'_blank');}}
 
-function generateUploadLink(){
-  const box=document.getElementById('uploadLinkBox');
-  box.style.display='block';
-  document.getElementById('uploadLinkVal').value=window.location.origin+window.location.pathname+'?upload=true&token='+btoa(Date.now());
-}
-function generateQR(){
-  const box=document.getElementById('qrBox');
-  box.style.display='block';
-  const url=window.location.href+'?qr=1';
-  document.getElementById('qrDisplay').innerHTML=`<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(url)}" style="width:100px;height:100px">`;
+function removeDoc(i) {
+  uploadedDocs.splice(i, 1);
+  renderDocList();
+  populateDocRequiredList();
+  updateDashboard();
+  autoSave();
 }
 
-// ===== CPT ROWS =====
-let cptData=[];
-function addCPTRow(){
-  cptData.push({code:'',desc:'',fee:''});
-  renderCPTRows();
+function generateUploadLink() {
+  const link = 'https://imdc-portal.onrender.com/upload?token=' + btoa(Date.now().toString()).replace(/=/g,'') + '&guided=true';
+  const box = document.getElementById('uploadLinkBox');
+  const val = document.getElementById('uploadLinkVal');
+  box.style.display = 'block';
+  val.value = link;
+  try { navigator.clipboard.writeText(link); } catch(e) {}
 }
-function renderCPTRows(){
-  const el=document.getElementById('cptRows');
-  if(!cptData.length){el.innerHTML='<p style="color:var(--gray);font-size:13px">No CPT codes added yet. Click "Add CPT Code" below.</p>';return;}
-  el.innerHTML=cptData.map((r,i)=>`
-    <div style="display:grid;grid-template-columns:1fr 2fr 1fr auto;gap:8px;margin-bottom:8px;align-items:end">
-      <div class="field"><label>CPT Code</label><input type="text" value="${r.code}" placeholder="e.g., 99213" onchange="cptData[${i}].code=this.value;saveData()"></div>
-      <div class="field"><label>Description</label><input type="text" value="${r.desc}" placeholder="Procedure description" onchange="cptData[${i}].desc=this.value;saveData()"></div>
-      <div class="field"><label>Fee ($)</label><input type="number" value="${r.fee}" placeholder="0.00" step="0.01" onchange="cptData[${i}].fee=this.value;saveData()"></div>
-      <button class="btn btn-sm btn-danger" onclick="cptData.splice(${i},1);renderCPTRows();saveData()" style="margin-bottom:2px">✕</button>
-    </div>`).join('');
+
+function sendUploadEmail() {
+  const email = document.getElementById('linkEmail').value;
+  if (!email) { alert('Please enter client email address first.'); return; }
+  openModal('emailModal');
+  document.getElementById('modalEmail').value = email;
 }
-function initCPTRows(){if(!cptData.length)addCPTRow();}
+
+function confirmSendEmail() {
+  closeModal('emailModal');
+  showValidationPopup(['Email functionality requires backend server configuration. Link has been generated — please copy and send manually.'], 'info');
+}
+
+function generateQR() {
+  const container = document.getElementById('qrContainer');
+  const canvas = document.getElementById('qrCanvas');
+  container.style.display = 'block';
+  // Draw a simple QR-like pattern (visual placeholder)
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0,0,160,160);
+  ctx.fillStyle = '#000';
+  // Draw QR border squares
+  function sq(x,y,s,fill='#000'){ctx.fillStyle=fill;ctx.fillRect(x,y,s,s);}
+  sq(8,8,42); sq(14,14,30,'#fff'); sq(20,20,18);
+  sq(110,8,42); sq(116,14,30,'#fff'); sq(122,20,18);
+  sq(8,110,42); sq(14,116,30,'#fff'); sq(20,122,18);
+  // Fill middle area
+  for(let r=0;r<7;r++){for(let c=0;c<7;c++){if(Math.random()>0.45)sq(56+c*7,56+r*7,6);}}
+  for(let r=0;r<4;r++){for(let c=0;c<6;c++){if(Math.random()>0.45)sq(8+c*7,60+r*7,6);}}
+  for(let r=0;r<4;r++){for(let c=0;c<4;c++){if(Math.random()>0.45)sq(110+c*7,60+r*7,6);}}
+  for(let r=0;r<3;r++){for(let c=0;c<7;c++){if(Math.random()>0.45)sq(60+c*7,110+r*7,6);}}
+  ctx.fillStyle='#cc0000';
+  ctx.font='bold 9px sans-serif';
+  ctx.textAlign='center';
+  ctx.fillText('IMDC',80,155);
+}
 
 // ===== REVIEW =====
-function getVal(id){const el=document.getElementById(id);if(!el)return'';return el.type==='checkbox'?(el.checked?'Yes':'No'):el.value||'';}
-function buildReview(){
-  const sections=[
-    {title:'A-1 · New Account Setup',page:'form-A1',fields:[
-      ['Practice Name','a1_practice_name'],['Address','a1_address'],['City','a1_city'],['State','a1_state'],['ZIP','a1_zip'],
-      ['Email','a1_email'],['Phone','a1_phone'],['Fax','a1_fax'],['Website','a1_website'],
-      ['Billing Contact','a1_bill_name'],['Billing Email','a1_bill_email'],['Billing Software','a1_bill_software'],['Notes','a1_notes']
+function buildReview() {
+  const content = document.getElementById('reviewContent');
+  const fields = [
+    { section: 'Billing — Contract Billing NASF0001', items: [
+      ['Practice Name', 'g_practice_name'], ['Address', 'g_address'], ['City', 'g_city'], ['State', 'g_state'],
+      ['ZIP', 'g_zip'], ['Email', 'g_email'], ['Phone', 'g_phone'], ['EIN', 'g_ein'],
+      ['Provider Name', 'g_provider_name'], ['NPI', 'g_npi'], ['Effective Date', 'g_eff_date'],
+      ['Signatory Name', 'g_sig_name']
     ]},
-    {title:'A-2 · Practice Profile',page:'form-A2',fields:[
-      ['EIN','a2_ein'],['Years in Business','a2_years'],['Services','a2_services'],['# Providers','a2_providers'],
-      ['Group NPI','a2_gnpi'],['Group PTAN','a2_gptan'],['Billing Software','a2_bsoft'],['EHR System','a2_ehr']
+    { section: 'Billing — Audit NASF0001', items: [
+      ['Audit Period Start', 'audit_start'], ['Audit Period End', 'audit_end'], ['Findings', 'audit_notes']
     ]},
-    {title:'A-3 · Provider Information',page:'form-A3',fields:[
-      ['Provider Name','a3_prov_name'],['Provider Phone','a3_prov_phone'],['Individual NPI','a3_inpi'],
-      ['Individual PTAN','a3_iptan'],['SSN (last 4)','a3_ssn'],['Date of Birth','a3_dob'],
-      ['CAQH Login','a3_caqh_login'],['Authorized Signatory','a3_sig_name'],['Title','a3_sig_title'],['Date','a3_sig_date']
+    { section: 'Billing — NDA NDA0001B', items: [
+      ['NDA Term (years)', 'nda_term'], ['Confidential Info Scope', 'nda_scope']
     ]},
-    {title:'B-1 · Provider Credentials',page:'form-B1',fields:[
-      ['License #','b1_lic'],['License State','b1_lic_state'],['License Expiry','b1_lic_exp'],['DEA #','b1_dea'],
-      ['Board Cert','b1_board'],['Specialty','b1_specialty'],['Medical School','b1_med_school'],
-      ['Ins. Carrier','b1_mal_carrier'],['Policy #','b1_mal_policy'],['Coverage Per Occurrence','b1_mal_per'],['Policy Expiry','b1_mal_exp']
+    { section: 'Credentialing — CARC0001A', items: [
+      ['Client Name', 'g_practice_name_ca'], ['Services', 'ca_services'], ['Credentialing Fee', 'ca_fee']
     ]},
-    {title:'B-2 · Insurance Enrollment',page:'form-B2',fields:[
-      ['Primary Network','b2_p1_name'],['Provider ID','b2_p1_id'],['Status','b2_p1_status'],
-      ['Secondary Network','b2_p2_name'],['Medicare Status','b2_mc_status'],['Medicare PTAN','b2_mc_gptan']
+    { section: 'Extra Forms — STD0001', items: [
+      ['Category', 'std1_cat'], ['Description', 'std1_desc']
     ]},
-    {title:'B-3 · CAQH Profile',page:'form-B3',fields:[
-      ['CAQH Provider ID','b3_caqh_id'],['CAQH Username','b3_caqh_user'],['Last Attested','b3_attested'],['Re-Attestation Due','b3_reattest'],['Authorization','b3_auth']
-    ]},
-    {title:'C-1 · Billing Agreement',page:'form-C1',fields:[
-      ['Client Entity','c1_client'],['Effective Date','c1_eff_date'],['Initial Term','c1_term'],
-      ['Base Fee %','c1_base_fee'],['Late Interest %','c1_late_int'],['Enrollment Fee (new)','c1_enroll_new'],
-      ['Governing State','c1_gov_state'],['Signatory','c1_sig_name'],['Title','c1_sig_title']
-    ]},
-    {title:'C-2 · BAA / HIPAA',page:'form-C2',fields:[
-      ['Covered Entity','c2_entity'],['Entity Type','c2_type'],['State','c2_org_state'],['Agreement Date','c2_date'],
-      ['Privacy Officer','c2_po_name'],['Phone','c2_po_phone'],['Email','c2_po_email'],
-      ['Ack 1','c2_ack1'],['Ack 2','c2_ack2'],['Ack 3','c2_ack3'],['Ack 4','c2_ack4']
-    ]},
-    {title:'D-1 · CPT Fee Schedule',page:'form-D1',fields:[]},
-    {title:'D-2 · PHI Release',page:'form-D2',fields:[['Patient Name','d2_name'],['DOB','d2_dob'],['MRN','d2_mrn'],['Release To','d2_release_to'],['Expiration','d2_exp']]},
-    {title:'D-3 · Special Requests',page:'form-D3',fields:[['Requests','d3_requests'],['Start Date','d3_start'],['Priority','d3_priority']]},
+    { section: 'Documents Uploaded', items: [['Count', null]] }
   ];
-
-  const rc=document.getElementById('reviewContent');
-  rc.innerHTML=sections.map(s=>`
+  content.innerHTML = fields.map(sec => `
     <div class="review-section">
-      <h3>${s.title} <button class="btn btn-sm btn-secondary" onclick="showPage('${s.page}',null)" style="margin-left:8px;font-size:10px">✏ Edit</button></h3>
-      ${s.title.includes('D-1')
-        ? (cptData.length?`<table class="print-table" style="margin-bottom:8px"><tr><td><strong>CPT Code</strong></td><td><strong>Description</strong></td><td><strong>Fee</strong></td></tr>${cptData.map(r=>`<tr><td>${r.code||'—'}</td><td>${r.desc||'—'}</td><td>${r.fee?'$'+r.fee:'—'}</td></tr>`).join('')}</table>`:'<p style="color:var(--gray);font-size:13px">No CPT entries.</p>')
-        : `<div class="review-grid">${s.fields.map(([l,id])=>{const v=getVal(id);return`<div class="review-field"><div class="rl">${l}</div><div class="rv ${v?'':'empty'}">${v||'— not entered —'}</div></div>`;}).join('')}</div>`
-      }
+      <h3>${sec.section}</h3>
+      <div class="review-grid">
+        ${sec.items.map(([label, id]) => {
+          let val = id ? (document.getElementById(id)?.value || '') : uploadedDocs.length + ' / 15 required documents';
+          const empty = !val;
+          return `<div class="review-field"><div class="rl">${label}</div><div class="rv ${empty?'empty':''}">${val || '— not entered —'}</div></div>`;
+        }).join('')}
+      </div>
     </div>`).join('');
 }
 
 // ===== SUBMIT =====
-let submitted=false;
-function finalSubmit(){
-  submitted=true;
-  document.getElementById('sendClientCard').style.display='block';
-  toast('Package submitted successfully ✓','green');
-  const btn=document.querySelector('#page-submit .btn-success');
-  btn.textContent='✓ Submitted';btn.disabled=true;btn.style.opacity='.6';
+function buildSubmitSummary() {
+  const el = document.getElementById('submitSummary');
+  const practice = document.getElementById('g_practice_name')?.value || '—';
+  const provider = document.getElementById('g_provider_name')?.value || '—';
+  const done = Object.keys(formsDone).length;
+  el.innerHTML = `
+    <table class="print-table">
+      <tr><td>Practice Name</td><td>${practice}</td></tr>
+      <tr><td>Provider Name</td><td>${provider}</td></tr>
+      <tr><td>Forms Completed</td><td>${done} / 9</td></tr>
+      <tr><td>Documents Uploaded</td><td>${uploadedDocs.length} / 15</td></tr>
+      <tr><td>Submission Date</td><td>${new Date().toLocaleDateString()}</td></tr>
+    </table>`;
 }
-function sendToClient(){
-  const email=document.getElementById('clientEmail').value;
-  if(!email){toast('Please enter client email','red');return;}
-  toast('Email sent to '+email+' ✓','green');
-  setTimeout(()=>showPage('output',null),1200);
+
+function checkAndProceedToSubmit() {
+  const missing = [];
+  const required = [
+    ['g_practice_name', 'Practice Name (NASF0001)'],
+    ['g_email', 'Email Address (NASF0001)'],
+    ['g_phone', 'Phone Number (NASF0001)'],
+    ['g_ein', 'Federal Tax ID/EIN (NASF0001)'],
+    ['g_provider_name', 'Provider Name (NASF0001)'],
+    ['g_eff_date', 'Effective Date (NASF0001)'],
+    ['g_sig_name', 'Signatory Name (NASF0001)']
+  ];
+  required.forEach(([id, label]) => {
+    const el = document.getElementById(id);
+    if (!el || !el.value.trim()) {
+      missing.push(label);
+      if (el) el.classList.add('field-error');
+    } else if (el) el.classList.remove('field-error');
+  });
+  if (missing.length > 0) {
+    showValidationPopup(missing);
+    return;
+  }
+  showPage('submit', null);
 }
-function generateClientLink(){
-  const box=document.getElementById('clientLinkBox');
-  box.style.display='block';
-  document.getElementById('clientLinkVal').value=window.location.origin+'/review?token='+btoa('client-'+Date.now());
+
+function completeSubmission() {
+  document.getElementById('submitSuccess').style.display = 'block';
+  document.querySelector('#page-submit .btn-row').style.display = 'none';
+}
+
+// ===== VALIDATION POPUP =====
+function showValidationPopup(fields, type='error') {
+  const popup = document.getElementById('validationPopup');
+  const list = document.getElementById('validationList');
+  list.innerHTML = fields.map(f => `<li>${f}</li>`).join('');
+  popup.querySelector('h4').textContent = type === 'info' ? 'ℹ Information' : '⚠ Missing Required Fields';
+  popup.querySelector('h4').style.color = type === 'info' ? '#1d4ed8' : '#e74c3c';
+  popup.classList.add('show');
+  popup.style.display = 'block';
+  setTimeout(() => popup.style.display = 'none', 6000);
+}
+function closeValidation() {
+  document.getElementById('validationPopup').style.display = 'none';
 }
 
 // ===== FINAL OUTPUT =====
-function renderFinalForms(){
-  const forms=[
-    {id:'A-1',title:'New Account Setup Form',fields:[
-      ['Practice Name','a1_practice_name'],['Business Name','a1_practice_name'],['Street Address','a1_address'],
-      ['Address Line 2','a1_address2'],['City','a1_city'],['State','a1_state'],['ZIP Code','a1_zip'],
-      ['Email','a1_email'],['Phone','a1_phone'],['Fax','a1_fax'],['Website','a1_website'],
-      ['Billing Contact','a1_bill_name'],['Billing Email','a1_bill_email'],['Billing Phone','a1_bill_phone'],['Notes','a1_notes']
-    ]},
-    {id:'A-2',title:'Practice Profile',fields:[
-      ['Federal Tax ID (EIN)','a2_ein'],['Years in Business','a2_years'],['Major Services','a2_services'],
-      ['No. of Providers','a2_providers'],['Group NPI','a2_gnpi'],['Medicare Group PTAN','a2_gptan'],
-      ['Billing Software','a2_bsoft'],['EHR System','a2_ehr']
-    ]},
-    {id:'A-3',title:'Provider Information',fields:[
-      ['Provider Name','a3_prov_name'],['Provider Phone','a3_prov_phone'],['Individual NPI','a3_inpi'],
-      ['Individual PTAN','a3_iptan'],['SSN (last 4)','a3_ssn'],['Date of Birth','a3_dob'],
-      ['Authorized Signatory','a3_sig_name'],['Signatory Title','a3_sig_title'],['Signature Date','a3_sig_date']
-    ]},
-    {id:'B-1',title:'Provider Credentials',fields:[
-      ['State Medical License #','b1_lic'],['License State','b1_lic_state'],['License Expiration','b1_lic_exp'],
-      ['DEA Certificate #','b1_dea'],['DEA Expiration','b1_dea_exp'],['Board Certification','b1_board'],
-      ['Specialty','b1_specialty'],['Medical School','b1_med_school'],['Graduation Year','b1_grad_yr'],
-      ['Residency Program','b1_residency'],['Ins. Carrier','b1_mal_carrier'],['Policy #','b1_mal_policy'],
-      ['Coverage Per Occurrence','b1_mal_per'],['Aggregate Coverage','b1_mal_agg'],['Policy Expiration','b1_mal_exp']
-    ]},
-    {id:'B-2',title:'Insurance Enrollment',fields:[
-      ['Primary Network','b2_p1_name'],['Provider ID (Primary)','b2_p1_id'],['Effective Date (Primary)','b2_p1_eff'],['Status (Primary)','b2_p1_status'],
-      ['Secondary Network','b2_p2_name'],['Provider ID (Secondary)','b2_p2_id'],
-      ['Medicare Status','b2_mc_status'],['Medicare Group PTAN','b2_mc_gptan'],['Medicaid State','b2_md_state'],['Medicaid Provider ID','b2_md_id']
-    ]},
-    {id:'B-3',title:'CAQH Profile',fields:[
-      ['CAQH Provider ID','b3_caqh_id'],['CAQH Username','b3_caqh_user'],
-      ['Last Attested','b3_attested'],['Re-Attestation Due','b3_reattest'],['Authorization','b3_auth']
-    ]},
-    {id:'C-1',title:'IMDC Billing Services Agreement',fields:[
-      ['Client Name / Entity','c1_client'],['Effective Date','c1_eff_date'],['Initial Term (yrs)','c1_term'],
-      ['Auto-Renewal Term','c1_renewal'],['Breach Cure Period (days)','c1_breach'],
-      ['Base Fee (%)','c1_base_fee'],['Late Interest Rate (%)','c1_late_int'],
-      ['Enrollment Fee — New ($)','c1_enroll_new'],['Enrollment Fee — Renewal ($)','c1_enroll_ren'],
-      ['Manual Entry Fee/encounter ($)','c1_manual'],['Scanning Fee/page ($)','c1_scan'],
-      ['Min Monthly Claims/Payer','c1_min_claims'],['Min Patient Statements','c1_min_stmt'],['Wind-Down Period (days)','c1_winddown'],
-      ['Governing State','c1_gov_state'],['Jurisdiction','c1_jurisdiction'],
-      ['Authorized Signatory','c1_sig_name'],['Title','c1_sig_title'],['Signature Date','c1_sig_date']
-    ]},
-    {id:'C-2',title:'Business Associate Agreement (BAA/HIPAA)',fields:[
-      ['Covered Entity Name','c2_entity'],['Entity Type','c2_type'],['State of Organization','c2_org_state'],
-      ['Agreement Date','c2_date'],['Privacy Officer','c2_po_name'],['Title','c2_po_title'],
-      ['Phone','c2_po_phone'],['Email','c2_po_email'],['Mailing Address','c2_po_addr'],
-      ['Ack: HIPAA/HITECH Obligations','c2_ack1'],['Ack: PHI Notice to Patients','c2_ack2'],
-      ['Ack: Restriction Notifications','c2_ack3'],['Ack: Regulatory Amendments','c2_ack4'],
-      ['Signatory Name','c2_sig_name'],['Title','c2_sig_title'],['Date','c2_sig_date']
-    ]},
-    {id:'C-3',title:'Service Terms & Conditions',fields:[
-      ['Services Provided','c3_services'],['Service Start Date','c3_start'],['Review Date','c3_review'],['Special Terms','c3_special']
-    ]},
-    {id:'D-2',title:'PHI Release Authorization',fields:[
-      ['Patient Name','d2_name'],['Date of Birth','d2_dob'],['Medical Record #','d2_mrn'],
-      ['Info to Release','d2_info'],['Purpose','d2_purpose'],['Release To','d2_release_to'],['Expiration','d2_exp']
-    ]},
-    {id:'D-3',title:'Special Requests',fields:[
-      ['Special Requests','d3_requests'],['Start Date','d3_start'],['Priority','d3_priority']
-    ]},
-  ];
-
-  const out=document.getElementById('finalFormsOutput');
-  let html='';
-  html+=forms.map(f=>{
-    const rows=f.fields.map(([l,id])=>{
-      const v=getVal(id);
-      return`<tr><td>${l}</td><td>${v||'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'}</td></tr>`;
-    }).join('');
-    return`<div class="print-form">
-      <div class="print-header">
-        <h2>Form ${f.id} — ${f.title}</h2>
-        <p>International Medical &amp; Dental Council LLC</p>
-        <p style="font-size:11px;color:var(--gray)">Generated: ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</p>
-      </div>
-      <table class="print-table">${rows}</table>
-      ${f.id==='D-1'?`<div style="margin-top:14px"><strong style="color:var(--gold);font-size:13px">CPT Fee Schedule</strong><table class="print-table" style="margin-top:8px"><tr><td><strong>CPT Code</strong></td><td><strong>Description</strong></td><td><strong>Fee</strong></td></tr>${cptData.map(r=>`<tr><td>${r.code||'—'}</td><td>${r.desc||'—'}</td><td>${r.fee?'$'+r.fee:'—'}</td></tr>`).join('')}</table></div>`:''}
-    </div>`;
-  }).join('');
-
-  if(docs.length){
-    html+=`<div class="print-form"><div class="print-header"><h2>Uploaded Documents</h2><p>International Medical &amp; Dental Council LLC</p></div>
-    <table class="print-table"><tr><td><strong>Title</strong></td><td><strong>Type</strong></td></tr>
-    ${docs.map(d=>`<tr><td>${d.title}</td><td>${d.type||'—'}</td></tr>`).join('')}</table></div>`;
+function refreshOutput() {
+  const v = id => document.getElementById(id)?.value || '';
+  function buildTable(rows) {
+    return rows.map(([label, val]) => `<tr><td>${label}</td><td>${val || '<span style="color:#ccc">—</span>'}</td></tr>`).join('');
   }
-  out.innerHTML=html;
+  // NASF0001
+  const t1 = document.getElementById('out-NASF0001-table');
+  if (t1) t1.innerHTML = buildTable([
+    ['Practice / Business Name', v('g_practice_name')],
+    ['Address', [v('g_address'), v('g_address2'), v('g_city'), v('g_state'), v('g_zip')].filter(Boolean).join(', ')],
+    ['Email', v('g_email')],
+    ['Phone', v('g_phone')],
+    ['Fax', v('g_fax')],
+    ['Federal Tax ID (EIN)', v('g_ein')],
+    ['Provider / President Name', v('g_provider_name')],
+    ['Provider Title', v('g_provider_title')],
+    ['Individual NPI', v('g_npi')],
+    ['Group NPI', v('g_group_npi')],
+    ['Effective Date', v('g_eff_date')],
+    ['Initial Term', v('nasf_term') ? v('nasf_term') + ' year(s)' : ''],
+    ['Base Fee', v('nasf_base_fee') ? v('nasf_base_fee') + '%' : ''],
+    ['Authorized Signatory', v('g_sig_name')],
+    ['Signature Date', v('g_sig_date')]
+  ]);
+  // NASF0001A
+  const t2 = document.getElementById('out-NASF0001A-table');
+  if (t2) t2.innerHTML = buildTable([
+    ['Practice Name', v('g_practice_name_2') || v('g_practice_name')],
+    ['Addendum Effective Date', v('nasf1a_eff')],
+    ['Amendment Number', v('nasf1a_amend_num')],
+    ['Scope of Amendment', v('nasf1a_scope')],
+    ['Special Terms', v('nasf1a_terms')],
+    ['Signatory', v('g_sig_name_2') || v('g_sig_name')]
+  ]);
+  // AUDIT
+  const t3 = document.getElementById('out-AUDIT-table');
+  if (t3) t3.innerHTML = buildTable([
+    ['Practice Name', v('g_practice_name_3') || v('g_practice_name')],
+    ['Email', v('g_email_3') || v('g_email')],
+    ['EIN', v('g_ein_3') || v('g_ein')],
+    ['Audit Period Start', v('audit_start')],
+    ['Audit Period End', v('audit_end')],
+    ['Payers Audited', v('audit_payers')],
+    ['Total Claims Audited', v('audit_claims')],
+    ['Total Billed Amount', v('audit_billed') ? '$' + v('audit_billed') : ''],
+    ['Total Collected Amount', v('audit_collected') ? '$' + v('audit_collected') : ''],
+    ['Findings', v('audit_notes')],
+    ['Recommendations', v('audit_rec')]
+  ]);
+  // NDA
+  const t4 = document.getElementById('out-NDA0001B-table');
+  if (t4) t4.innerHTML = buildTable([
+    ['Disclosing Party', v('g_practice_name_nda') || v('g_practice_name')],
+    ['Receiving Party', 'International Medical & Dental Council LLC'],
+    ['Effective Date', v('g_eff_date_nda') || v('g_eff_date')],
+    ['NDA Term', v('nda_term') ? v('nda_term') + ' year(s)' : ''],
+    ['Confidential Information Scope', v('nda_scope')],
+    ['Signatory', v('g_sig_name_nda') || v('g_sig_name')],
+    ['Signature Date', v('g_sig_date_nda') || v('g_sig_date')]
+  ]);
+  // CARC0001A
+  const t5 = document.getElementById('out-CARC0001A-table');
+  if (t5) t5.innerHTML = buildTable([
+    ['Client / Practice Name', v('g_practice_name_ca') || v('g_practice_name')],
+    ['Provider Name', v('g_provider_name_ca') || v('g_provider_name')],
+    ['Effective Date', v('g_eff_date_ca') || v('g_eff_date')],
+    ['Agreement Term', v('ca_term')],
+    ['Services Provided', v('ca_services')],
+    ['Credentialing Fee', v('ca_fee') ? '$' + v('ca_fee') : ''],
+    ['Renewal Fee', v('ca_renew_fee') ? '$' + v('ca_renew_fee') : ''],
+    ['Signatory', v('g_sig_name_ca') || v('g_sig_name')],
+    ['Signature Date', v('g_sig_date_ca') || v('g_sig_date')]
+  ]);
 }
 
-function printAllForms(){renderFinalForms();window.print();}
-function downloadTextOutput(){
-  let txt='IMDC INTAKE PACKAGE\nInternational Medical & Dental Council LLC\nGenerated: '+new Date().toLocaleString()+'\n\n';
-  document.querySelectorAll('.print-form').forEach(f=>{
-    txt+=f.querySelector('h2')?.textContent+'\n'+'─'.repeat(50)+'\n';
-    f.querySelectorAll('tr').forEach(r=>{
-      const cells=r.querySelectorAll('td');
-      if(cells.length>=2)txt+=cells[0].textContent.padEnd(35)+cells[1].textContent+'\n';
-    });
-    txt+='\n';
+// ===== PRINT SINGLE FORM =====
+function printForm(formId) {
+  refreshOutput();
+  showPage('output', null);
+  // Hide all except target
+  const forms = ['NASF0001','NASF0001A','AUDIT','NDA0001B','CARC0001A'];
+  forms.forEach(id => {
+    const el = document.getElementById('out-' + id);
+    if (el) el.style.display = id === formId ? 'block' : 'none';
   });
-  const a=document.createElement('a');
-  a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(txt);
-  a.download='IMDC_Intake_Package.txt';a.click();
-}
-function emailFinalPackage(){toast('Email function would open your email client with the package attached.','green');}
-function generateFinalLink(){toast('Shareable link: '+window.location.href+'?view=final','green');}
-
-// ===== SIGNATURES =====
-function initSigPads(){
-  ['sigC1','sigC2'].forEach(id=>initPad(id));
-}
-function initPad(id){
-  const canvas=document.getElementById(id);
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  let drawing=false,lx=0,ly=0;
-  canvas.addEventListener('mousedown',e=>{drawing=true;[lx,ly]=getXY(canvas,e);});
-  canvas.addEventListener('mousemove',e=>{if(!drawing)return;const[x,y]=getXY(canvas,e);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(x,y);ctx.strokeStyle='#cc0000';ctx.lineWidth=2;ctx.stroke();[lx,ly]=[x,y];});
-  canvas.addEventListener('mouseup',()=>drawing=false);
-  canvas.addEventListener('touchstart',e=>{e.preventDefault();drawing=true;[lx,ly]=getXY(canvas,e.touches[0]);},{passive:false});
-  canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const[x,y]=getXY(canvas,e.touches[0]);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(x,y);ctx.strokeStyle='#cc0000';ctx.lineWidth=2;ctx.stroke();[lx,ly]=[x,y];},{passive:false});
-  canvas.addEventListener('touchend',()=>drawing=false);
-}
-function getXY(canvas,e){const r=canvas.getBoundingClientRect();return[(e.clientX-r.left)*(canvas.width/r.width),(e.clientY-r.top)*(canvas.height/r.height)];}
-function clearSig(id){const c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height);}
-function saveSig(id){toast('Signature saved ✓');}
-
-// ===== TOAST =====
-function toast(msg,type=''){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.style.borderColor=type==='red'?'#e74c3c':type==='green'?'var(--green-light)':'var(--gold)';
-  t.style.display='block';
-  setTimeout(()=>t.style.display='none',2800);
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => forms.forEach(id => {
+      const el = document.getElementById('out-' + id);
+      if (el) el.style.display = 'block';
+    }), 1000);
+  }, 300);
 }
 
-// Init
-document.addEventListener('DOMContentLoaded',()=>{
-  // Autofill date fields
-  document.querySelectorAll('input[type=date]').forEach(el=>{if(!el.value)el.value=new Date().toISOString().slice(0,10);});
-});
+// ===== SIGNATURE PADS =====
+const sigPads = {};
+function initSigPads() {
+  const canvases = document.querySelectorAll('.sig-pad canvas');
+  canvases.forEach(canvas => {
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    sigPads[canvas.id] = { ctx, drawing };
+    canvas.style.touchAction = 'none';
+    const getPos = e => {
+      const r = canvas.getBoundingClientRect();
+      const src = e.touches ? e.touches[0] : e;
+      return { x: (src.clientX - r.left) * (canvas.width / r.width), y: (src.clientY - r.top) * (canvas.height / r.height) };
+    };
+    canvas.addEventListener('mousedown', e => { const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); drawing = true; });
+    canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.strokeStyle = '#111'; ctx.lineWidth = 1.5; ctx.lineCap = 'round'; ctx.stroke(); });
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); drawing = true; }, { passive: false });
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.strokeStyle = '#111'; ctx.lineWidth = 1.5; ctx.lineCap = 'round'; ctx.stroke(); }, { passive: false });
+    canvas.addEventListener('touchend', () => drawing = false);
+  });
+}
+function clearSig(id) { const c = document.getElementById(id); if (c) c.getContext('2d').clearRect(0, 0, c.width, c.height); }
+function saveSig(id) { const c = document.getElementById(id); if (c) { const d = c.toDataURL(); localStorage.setItem('sig_' + id, d); showValidationPopup(['Signature saved successfully.'], 'info'); } }
+
+// ===== AUTO SAVE / LOAD =====
+let saveTimer;
+function autoSave() {
+  clearTimeout(saveTimer);
+  document.getElementById('saveStatus').innerHTML = '⏳ Saving...';
+  saveTimer = setTimeout(() => {
+    const data = {};
+    document.querySelectorAll('input, select, textarea').forEach(el => { if (el.id) data[el.id] = el.type === 'checkbox' ? el.checked : el.value; });
+    data._docs = uploadedDocs;
+    data._forms = formsDone;
+    try { localStorage.setItem('imdc_data', JSON.stringify(data)); } catch(e) {}
+    document.getElementById('saveStatus').innerHTML = '✓ All data saved';
+  }, 800);
+}
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem('imdc_data');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    Object.entries(data).forEach(([id, val]) => {
+      if (id === '_docs' || id === '_forms') return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === 'checkbox') el.checked = val;
+      else el.value = val;
+    });
+    if (data._docs) { uploadedDocs = data._docs; renderDocList(); }
+    if (data._forms) {
+      Object.keys(data._forms).forEach(id => {
+        formsDone[id] = true;
+        const badge = document.getElementById('badge-' + id);
+        if (badge) { badge.textContent = '✓'; badge.className = 'num done'; }
+      });
+    }
+  } catch(e) {}
+}
+
+// ===== MODAL =====
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 </script>
 </body>
 </html>
